@@ -1,6 +1,8 @@
+import { getAllRoles } from "@/utils/getAllRoles";
 
-export default function Home() {
+export default async function Home() {
+  const roles = await getAllRoles();
   return (
-      <div>HELLO WORLD</div>
-  )
+      <pre>{JSON.stringify(roles, null, 2)}</pre> 
+    )
 }

@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "20.6.2",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
@@ -19,7 +18,13 @@
     "postcss": "8.4.30",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "tailwindcss": "3.3.3",
-    "typescript": "5.2.2"
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.6",
+    "tailwindcss": "3.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.10",
+    "@types/sqlite3": "^3.1.10",
+    "typescript": "^5.2.2"
   }
 }
