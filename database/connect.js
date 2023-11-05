@@ -15,7 +15,7 @@ db.serialize(() => {
   db.run(`
     CREATE TABLE IF NOT EXISTS roles (
       role_id INTEGER PRIMARY KEY,
-      role_name TEXT,
+      role_name TEXT UNIQUE,
       description TEXT,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
@@ -32,6 +32,7 @@ db.serialize(() => {
         id INTEGER PRIMARY KEY,
         username TEXT,
         name TEXT,
+        surname TEXT UNIQUE,
         password TEXT,
         annual_leave_allowance INTEGER,
         role_id INTEGER,
