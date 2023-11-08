@@ -6,6 +6,7 @@ export type Role = {
   }
   
 export type User = {
+    id: number;
     name: string;
     surname: string;
     username: string;
