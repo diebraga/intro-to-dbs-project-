@@ -11,7 +11,7 @@ export default async function Home() {
   // await createUserForEachRole()
   // await getAllRoles();
   // await createRoles();
-  await createUserForEachRole();
+  // await createUserForEachRole();
   return (
     <div>
       <Head>
