@@ -9,13 +9,15 @@ import Head from "next/head";
 export default async function Home() {
   // await deleteAllUsers()
   // await createUserForEachRole()
+  // await getAllRoles();
+  // await createRoles();
+  await createUserForEachRole();
   return (
     <div>
       <Head>
         <title>Login</title>
       </Head>
-      
-     
+
       <LoginForm />
     </div>
   );
