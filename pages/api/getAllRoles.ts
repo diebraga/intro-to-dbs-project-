@@ -6,19 +6,19 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const token = req.headers.authorization?.split(" ")[1];
+  //   const token = req.headers.authorization?.split(" ")[1];
 
-  if (!token) {
-    return res.status(401).json({ error: "No token provided" });
-  }
+  //   if (!token) {
+  //     return res.status(401).json({ error: "No token provided" });
+  //   }
 
   try {
-    const secret = process.env.JWT_SECRET;
-    if (!secret) {
-      throw new Error("JWT secret is not defined");
-    }
+    // const secret = process.env.JWT_SECRET;
+    // if (!secret) {
+    //   throw new Error("JWT secret is not defined");
+    // }
 
-    jwt.verify(token, secret);
+    // jwt.verify(token, secret);
 
     const roles = await getAllRoles();
     return res.status(200).json(roles);

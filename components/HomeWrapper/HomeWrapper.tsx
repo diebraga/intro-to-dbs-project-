@@ -10,14 +10,10 @@ export default function HomeWrapper() {
   const [error, setError] = useState<null | string>(null);
   const [apiName, setApiName] = useState<ApiNameType>("getAllUsers");
 
-  const getAllUsers = async (token: string) => {
+  const getAllUsers = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`/api/${apiName}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(`/api/${apiName}`);
 
       if (!response.ok) {
         setError(`HTTP error! status: ${response.status}`);
@@ -33,14 +29,7 @@ export default function HomeWrapper() {
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const token = localStorage.getItem("token:intro:to:dbs");
-      if (token) {
-        getAllUsers(token);
-      } else {
-        setError("Token not found.");
-      }
-    }
+    getAllUsers();
   }, [apiName]);
 
   if (loading) return <p>Loading...</p>;

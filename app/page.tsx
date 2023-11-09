@@ -1,4 +1,6 @@
+import HomeWrapper from "@/components/HomeWrapper/HomeWrapper";
 import { LoginForm } from "@/components/LoginForm/LoginForm";
+import Menu from "@/components/Menu/Menu";
 import { createRoles } from "@/utils/createRoles";
 import { createUserForEachRole } from "@/utils/createUserForEachRole";
 import { deleteAllUsers } from "@/utils/deleteAllUsers";
@@ -9,16 +11,12 @@ import Head from "next/head";
 export default async function Home() {
   // await deleteAllUsers()
   // await createUserForEachRole()
-  // await getAllRoles();
-  // await createRoles();
-  // await createUserForEachRole();
   return (
     <div>
       <Head>
-        <title>Login</title>
+        <title>Home</title>
       </Head>
-
-      <LoginForm />
+      <HomeWrapper />
     </div>
   );
 }
