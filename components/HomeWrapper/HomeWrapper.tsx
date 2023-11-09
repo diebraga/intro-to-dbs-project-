@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Menu from "../Menu/Menu";
 
-type ApiNameType = "getAllUsers";
+export type ApiNameType = "getAllUsers" | "getAllRoles";
 
 export default function HomeWrapper() {
   const [data, setData] = useState(null);
@@ -47,8 +47,8 @@ export default function HomeWrapper() {
   if (error) return <p>Error: {error}</p>;
   return (
     <div>
-      <Menu />
-      {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
+      <Menu apiName={apiName} setApiName={setApiName} />
+      {data && <pre className="text-xs">{JSON.stringify(data, null, 2)}</pre>}
     </div>
   );
 }
