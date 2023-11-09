@@ -37,7 +37,7 @@ export default function HomeWrapper() {
   return (
     <div>
       <Menu apiName={apiName} setApiName={setApiName} />
-      {data && <pre className="text-xs">{JSON.stringify(data, null, 2)}</pre>}
+      {/* {data && <pre className="text-xs">{JSON.stringify(data, null, 2)}</pre>} */}
     </div>
   );
 }
