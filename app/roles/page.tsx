@@ -1,3 +1,4 @@
+import GetAllUsers from "@/components/GetAllUsers/GetAllUsers";
 import HomeWrapper from "@/components/HomeWrapper/HomeWrapper";
 import { LoginForm } from "@/components/LoginForm/LoginForm";
 import Menu from "@/components/Menu/Menu";
@@ -11,12 +12,7 @@ import Head from "next/head";
 export default async function Home() {
   // await deleteAllUsers()
   // await createUserForEachRole()
-  return (
-    <div>
-      {/* <Head>
-        <title>Home</title>
-      </Head>
-      <HomeWrapper /> */}
-    </div>
-  );
+  const data = await getAllRoles();
+
+  return <pre className="text-xs">{JSON.stringify(data, null, 2)}</pre>;
 }

@@ -1,16 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import { ApiNameType } from "../HomeWrapper/HomeWrapper";
+import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-export default function Menu({
-  setApiName,
-  apiName,
-}: {
-  setApiName: React.Dispatch<React.SetStateAction<ApiNameType>>;
-  apiName: ApiNameType;
-}) {
-  const isShowAllUsersActive = apiName === "getAllUsers" ? "underline" : "";
-  const isShowAllRolesActive = apiName === "getAllRoles" ? "underline" : "";
+export default function Menu() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const isRootSelected = pathname === "/" ? "underline" : "";
+  const isRolesSelected = pathname === "/" ? "underline" : "";
 
   return (
     <div className="flex">
@@ -19,8 +16,8 @@ export default function Menu({
 
         <>
           <div
-            onClick={() => setApiName("getAllUsers")}
-            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isShowAllUsersActive}`}
+            onClick={() => router.push("/")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isRootSelected}`}
           >
             SHOW ALL
           </div>
@@ -31,8 +28,8 @@ export default function Menu({
 
         <>
           <div
-            onClick={() => setApiName("getAllRoles")}
-            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isShowAllRolesActive}`}
+            onClick={() => router.push("/roles")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isRolesSelected}}`}
           >
             SHOW ALL
           </div>
