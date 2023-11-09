@@ -12,11 +12,9 @@ export default async function Home() {
   return (
     <div>
       <Head>
-        <title>Login</title>
+        <title>Home</title>
       </Head>
-      
-     
-      <LoginForm />
+      HOME
     </div>
   );
 }

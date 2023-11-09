@@ -1,35 +1,38 @@
-'use client'
+"use client";
+import { useRouter } from "next/navigation";
 import { useState, FormEvent, ChangeEvent } from "react";
 
 export function LoginForm() {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [err, setErr] = useState<string>("");
+  const { push } = useRouter();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); // Prevent default form submission
-
+    event.preventDefault();
     try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
+      const response = await fetch("/api/login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ username, password }),
       });
 
       const data = await response.json();
-
+      if (data.token) {
+        localStorage.setItem("token:intro:to:dbs", data.token);
+        push("/home");
+      }
       if (data.error) {
         setErr(data.error);
       } else {
-        // Perform actions on successful login
-        console.log('Login successful! Token:', data.token);
-        setErr(''); // Reset error if necessary
+        console.log("Login successful! Token:", data.token);
+        setErr("");
       }
     } catch (error) {
-      console.error('An error occurred:', error);
-      setErr('An error occurred during login.');
+      console.error("An error occurred:", error);
+      setErr("An error occurred during login.");
     }
   };
 
@@ -75,7 +78,9 @@ export function LoginForm() {
               />
             </div>
             <div className="form-control mt-6">
-              <button type="submit" className="btn btn-primary">Login</button>
+              <button type="submit" className="btn btn-primary">
+                Login
+              </button>
             </div>
           </form>
         </div>
