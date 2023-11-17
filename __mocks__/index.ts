@@ -7,7 +7,8 @@ export const users = [
         username: "diebraga",
         password: generateRandomPassword(10),
         roleId: 1,
-        annualLeaveAllowance: 20 
+        annualLeaveAllowance: 20 ,
+        salary: 90000
     },
     {
         name: "Ana",
@@ -15,7 +16,8 @@ export const users = [
         username: "anasilva",
         password: generateRandomPassword(10),
         roleId: 2,
-        annualLeaveAllowance: 20
+        annualLeaveAllowance: 20,
+        salary: 50000
     },
     {
         name: "Luiz",
@@ -23,6 +25,7 @@ export const users = [
         username: "luizcosta",
         password: generateRandomPassword(10),
         roleId: 3,
-        annualLeaveAllowance: 20
+        annualLeaveAllowance: 20,
+        salary: 40000
     }
 ];

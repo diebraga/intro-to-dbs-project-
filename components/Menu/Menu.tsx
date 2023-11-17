@@ -30,6 +30,10 @@ export default function Menu() {
 
     const resetOrdersSelected =
     pathname === "/delete-order-6-old" ? "underline" : "";
+
+
+    const usersBySalarySelected =
+    pathname === "/users-by-salary" ? "underline" : "";
   return (
     <div className="flex">
       <div className="text-sm ">
@@ -53,6 +57,12 @@ export default function Menu() {
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isAnualAllowance0Selected}`}
           >
             SET ANUAL ALLOWANCE TO 0
+          </div>
+          <div
+            onClick={() => router.push("/users-by-salary")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${usersBySalarySelected}`}
+          >
+            ORDER BY HIGHEST SALARY
           </div>
         </>
       </div>

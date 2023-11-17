@@ -36,6 +36,7 @@ db.serialize(() => {
         password TEXT,
         annual_leave_allowance INTEGER,
         role_id INTEGER,
+        salary INTEGER,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY(role_id) REFERENCES roles(role_id)
       )

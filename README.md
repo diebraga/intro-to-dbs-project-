@@ -1,3 +1,6 @@
+STEP 1
+CREATE TABLES
+node database/connect.js
 
 STEP 1
 RUN CREATE ROLES
