@@ -17,6 +17,11 @@ export default function Menu() {
 
     const isOrderItemsSelected =
     pathname === "/order-items" ? "underline" : "";
+
+    const isDEleteRecorsSelected =
+    pathname === "/new-record-tables" ? "underline" : "";
+    const isNewRecordsSelected =
+    pathname === "/new-record-tables" ? "underline" : "";
     const isOrdersSelected =
     pathname === "/orders" ? "underline" : "";
 
@@ -43,9 +48,9 @@ export default function Menu() {
     const usersBySalarySelected =
     pathname === "/users-by-salary" ? "underline" : "";
   return (
-    <div className="flex">
+    <div className="flex flex-wrap">
       <div className="text-sm ">
-        <div className="p-3 font-medium  text-blue-600 ">USERS TABLE</div>
+        <div className="p-3 font-medium  text-yellow-600 ">USERS TABLE</div>
 
         <>
           <div
@@ -81,7 +86,7 @@ export default function Menu() {
         </>
       </div>
       <div className="text-sm ">
-        <div className={`p-3 font-medium text-blue-600 `}>ROLES TABLE</div>
+        <div className={`p-3 font-medium text-yellow-600 `}>ROLES TABLE</div>
 
         <>
           <div
@@ -93,7 +98,7 @@ export default function Menu() {
         </>
       </div>
       <div className="text-sm ">
-        <div className={`p-3 font-medium text-blue-600 `}>COSTUMERS TABLE</div>
+        <div className={`p-3 font-medium text-yellow-600 `}>COSTUMERS TABLE</div>
         <>
           <div
             onClick={() => router.push("/costumers")}
@@ -104,7 +109,7 @@ export default function Menu() {
         </>
       </div>
       <div className="text-sm ">
-        <div className={`p-3 font-medium text-blue-600 `}>ORDERS TABLE</div>
+        <div className={`p-3 font-medium text-yellow-600 `}>ORDERS TABLE</div>
 
         <>
           <div
@@ -141,7 +146,7 @@ export default function Menu() {
       </div>
 
       <div className="text-sm ">
-        <div className={`p-3 font-medium text-blue-600 `}>STOCKS TABLE</div>
+        <div className={`p-3 font-medium text-yellow-600 `}>STOCKS TABLE</div>
         <>
           <div
             onClick={() => router.push("/stocks")}
@@ -153,7 +158,7 @@ export default function Menu() {
       </div>
 
       <div className="text-sm ">
-        <div className={`p-3 font-medium text-blue-600 `}>DELIVERY TABLE</div>
+        <div className={`p-3 font-medium text-yellow-600 `}>DELIVERY TABLE</div>
         <>
           <div
             onClick={() => router.push("/delivery")}
@@ -166,13 +171,32 @@ export default function Menu() {
 
 
       <div className="text-sm ">
-        <div className={`p-3 font-medium text-blue-600 `}>ORDER_ITEMS TABLE</div>
+        <div className={`p-3 font-medium text-yellow-600 `}>ORDER_ITEMS TABLE</div>
         <>
           <div
             onClick={() => router.push("/order-items")}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isOrderItemsSelected}`}
           >
             SHOW ALL
+          </div>
+        </>
+      </div>
+
+
+      <div className="text-sm ">
+        <div className={`p-3 font-medium text-yellow-600 `}>ACTIONS</div>
+        <>
+          <div
+            onClick={() => router.push("/new-record-tables")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isNewRecordsSelected}`}
+          >
+            {'Add one new record to each table'.toUpperCase()}
+          </div>
+          <div
+            onClick={() => router.push("/delete-record-added")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isDEleteRecorsSelected}`}
+          >
+            {'DELETE ADDED RECORS ADDED'}
           </div>
         </>
       </div>

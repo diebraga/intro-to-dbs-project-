@@ -3,6 +3,7 @@ import HomeWrapper from "@/components/HomeWrapper/HomeWrapper";
 import { LoginForm } from "@/components/LoginForm/LoginForm";
 import Menu from "@/components/Menu/Menu";
 import { createCustomers } from "@/utils/createCostumers";
+import { createOrderItems } from "@/utils/createOrderItems";
 import { createOrders } from "@/utils/createOrders";
 import { createRoles } from "@/utils/createRoles";
 import { createUserForEachRole } from "@/utils/createUserForEachRole";
@@ -14,6 +15,7 @@ export default async function Home() {
   // await createUserForEachRole()
   // await createCustomers()
   // await createOrders()
+  // await createOrderItems()
 
   return (
     <div>
