@@ -50,6 +50,30 @@ export default function Menu() {
           </div>
         </>
       </div>
+      <div className="text-sm ">
+        <div className={`p-3 font-medium text-blue-600 `}>COSTUMERS TABLE</div>
+
+        <>
+          <div
+            onClick={() => router.push("/costumers")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isRolesSelected}`}
+          >
+            SHOW ALL
+          </div>
+        </>
+      </div>
+      <div className="text-sm ">
+        <div className={`p-3 font-medium text-blue-600 `}>ORDERS TABLE</div>
+
+        <>
+          <div
+            onClick={() => router.push("/orders")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isRolesSelected}`}
+          >
+            SHOW ALL
+          </div>
+        </>
+      </div>
     </div>
   );
 }

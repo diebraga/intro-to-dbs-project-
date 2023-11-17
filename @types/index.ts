@@ -14,3 +14,11 @@ export type User = {
     roleId: number;
     annualLeaveAllowance: number;
   };
+
+export type Customer = {
+  customer_id: number;
+  name: string;
+  address: string;
+  email: string;
+  phone_number: string;
+};
