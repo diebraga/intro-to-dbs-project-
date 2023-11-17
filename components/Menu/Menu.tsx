@@ -21,6 +21,15 @@ export default function Menu() {
 
     const isSetProcessingSelected =
     pathname === "/set-orders-proccessing" ? "underline" : "";
+    
+    const isSetPayedShipedSelected =
+    pathname === "/set-payed-shiped" ? "underline" : "";
+
+    const deleteOrderSixSelected =
+    pathname === "/delete-order-6-old" ? "underline" : "";
+
+    const resetOrdersSelected =
+    pathname === "/delete-order-6-old" ? "underline" : "";
   return (
     <div className="flex">
       <div className="text-sm ">
@@ -85,6 +94,24 @@ export default function Menu() {
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isSetProcessingSelected}`}
           >
             SET ALL PROCCESSING
+          </div>
+          <div
+            onClick={() => router.push("/set-payed-shiped")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isSetPayedShipedSelected}`}
+          >
+            SET PAYED SHIPED
+          </div>
+          <div
+            onClick={() => router.push("/delete-order-6-old")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${deleteOrderSixSelected}`}
+          >
+            DELETE MORE THAN 6 MONTHS OLD
+          </div>
+          <div
+            onClick={() => router.push("/reset-orders")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${resetOrdersSelected}`}
+          >
+            RESET ORDERS
           </div>
         </>
       </div>

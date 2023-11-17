@@ -9,7 +9,6 @@ import Head from "next/head";
 
 export default async function Home() {
   // await deleteAllUsers()
-  // await createUserForEachRole()
   return (
     <div>
       <GetAllUsers />
