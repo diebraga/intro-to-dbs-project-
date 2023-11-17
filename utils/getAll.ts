@@ -1,6 +1,6 @@
 import { openDb } from '@/database/openDb';
 
-type Table = "customers" | "roles" | "users" |"orders"
+type Table = "customers" | "roles" | "users" |"orders"|"stock"|"deliveries"
 export async function getAll(table: Table) {
   const db = await openDb();
 

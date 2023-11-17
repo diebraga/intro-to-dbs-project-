@@ -13,8 +13,14 @@ export default function Menu() {
   const isAnualAllowance0Selected =
     pathname === "/set-anual-allowance-0" ? "underline" : "";
     
+    const isDeliverySelected =
+    pathname === "/delivery" ? "underline" : "";
+
     const isOrdersSelected =
     pathname === "/orders" ? "underline" : "";
+
+    const isStocksSelected =
+    pathname === "/stocks" ? "underline" : "";
     const isLowestSalarySelected =
     pathname === "/user-by-salary-low" ? "underline" : "";
     const isCosumersSelected =
@@ -129,6 +135,30 @@ export default function Menu() {
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${resetOrdersSelected}`}
           >
             RESET ORDERS
+          </div>
+        </>
+      </div>
+
+      <div className="text-sm ">
+        <div className={`p-3 font-medium text-blue-600 `}>STOCKS TABLE</div>
+        <>
+          <div
+            onClick={() => router.push("/stocks")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isStocksSelected}`}
+          >
+            SHOW ALL
+          </div>
+        </>
+      </div>
+
+      <div className="text-sm ">
+        <div className={`p-3 font-medium text-blue-600 `}>DELIVERY TABLE</div>
+        <>
+          <div
+            onClick={() => router.push("/delivery")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isDeliverySelected}`}
+          >
+            SHOW ALL
           </div>
         </>
       </div>
