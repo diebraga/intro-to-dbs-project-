@@ -12,10 +12,11 @@ export default function Menu() {
     pathname === "/set-anual-allowance" ? "underline" : "";
   const isAnualAllowance0Selected =
     pathname === "/set-anual-allowance-0" ? "underline" : "";
-
+    
     const isOrdersSelected =
     pathname === "/orders" ? "underline" : "";
-    
+    const isLowestSalarySelected =
+    pathname === "/user-by-salary-low" ? "underline" : "";
     const isCosumersSelected =
     pathname === "/costumers" ? "underline" : "";
 
@@ -63,6 +64,12 @@ export default function Menu() {
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${usersBySalarySelected}`}
           >
             ORDER BY HIGHEST SALARY
+          </div>
+          <div
+            onClick={() => router.push("/user-by-salary-low")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isLowestSalarySelected}`}
+          >
+            ORDER BY LOWEST SALARY
           </div>
         </>
       </div>
