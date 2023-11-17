@@ -12,6 +12,15 @@ export default function Menu() {
     pathname === "/set-anual-allowance" ? "underline" : "";
   const isAnualAllowance0Selected =
     pathname === "/set-anual-allowance-0" ? "underline" : "";
+
+    const isOrdersSelected =
+    pathname === "/orders" ? "underline" : "";
+    
+    const isCosumersSelected =
+    pathname === "/costumers" ? "underline" : "";
+
+    const isSetProcessingSelected =
+    pathname === "/set-orders-proccessing" ? "underline" : "";
   return (
     <div className="flex">
       <div className="text-sm ">
@@ -52,11 +61,10 @@ export default function Menu() {
       </div>
       <div className="text-sm ">
         <div className={`p-3 font-medium text-blue-600 `}>COSTUMERS TABLE</div>
-
         <>
           <div
             onClick={() => router.push("/costumers")}
-            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isRolesSelected}`}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isCosumersSelected}`}
           >
             SHOW ALL
           </div>
@@ -68,9 +76,15 @@ export default function Menu() {
         <>
           <div
             onClick={() => router.push("/orders")}
-            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isRolesSelected}`}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isOrdersSelected}`}
           >
             SHOW ALL
+          </div>
+          <div
+            onClick={() => router.push("/set-orders-proccessing")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isSetProcessingSelected}`}
+          >
+            SET ALL PROCCESSING
           </div>
         </>
       </div>

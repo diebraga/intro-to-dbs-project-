@@ -15,8 +15,8 @@ export async function createOrders() {
         // Sample order data
         const newOrders = [
           { order_id: 1, customer_id: 1, user_id: 1, status: 'Processing', total: 100.00, created_at: new Date().toISOString() },
-          { order_id: 2, customer_id: 2, user_id: 2, status: 'Completed', total: 150.00, created_at: new Date().toISOString() },
-          { order_id: 3, customer_id: 3, user_id: 3, status: 'Pending', total: 200.00, created_at: new Date().toISOString() }
+          { order_id: 2, customer_id: 2, user_id: 2, status: 'Processing', total: 150.00, created_at: new Date().toISOString() },
+          { order_id: 3, customer_id: 3, user_id: 3, status: 'Processing', total: 200.00, created_at: new Date().toISOString() }
         ];
   
         for (const order of newOrders) {
