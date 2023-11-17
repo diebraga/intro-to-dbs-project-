@@ -12,10 +12,11 @@ export default function Menu() {
     pathname === "/set-anual-allowance" ? "underline" : "";
   const isAnualAllowance0Selected =
     pathname === "/set-anual-allowance-0" ? "underline" : "";
-    
     const isDeliverySelected =
     pathname === "/delivery" ? "underline" : "";
 
+    const isOrderItemsSelected =
+    pathname === "/order-items" ? "underline" : "";
     const isOrdersSelected =
     pathname === "/orders" ? "underline" : "";
 
@@ -157,6 +158,19 @@ export default function Menu() {
           <div
             onClick={() => router.push("/delivery")}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isDeliverySelected}`}
+          >
+            SHOW ALL
+          </div>
+        </>
+      </div>
+
+
+      <div className="text-sm ">
+        <div className={`p-3 font-medium text-blue-600 `}>ORDER_ITEMS TABLE</div>
+        <>
+          <div
+            onClick={() => router.push("/order-items")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isOrderItemsSelected}`}
           >
             SHOW ALL
           </div>
