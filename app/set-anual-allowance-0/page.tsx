@@ -12,7 +12,7 @@ import Head from "next/head";
 export default async function Home() {
   // await deleteAllUsers()
   // await createUserForEachRole()
-  await updateAnnualLeaveAllowance(0);
+  await updateAnnualLeaveAllowance("random");
   const data = await getAll("users");
 
   return <pre className="text-xs">{JSON.stringify(data, null, 2)}</pre>;

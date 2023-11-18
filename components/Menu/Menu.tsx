@@ -45,6 +45,9 @@ export default function Menu() {
     pathname === "/delete-order-6-old" ? "underline" : "";
 
 
+
+    const usersByLeastDAysSelected =
+    pathname === "/users-by-salary" ? "underline" : "";
     const usersBySalarySelected =
     pathname === "/users-by-salary" ? "underline" : "";
   return (
@@ -69,7 +72,7 @@ export default function Menu() {
             onClick={() => router.push("/set-anual-allowance-0")}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isAnualAllowance0Selected}`}
           >
-            SET ANUAL ALLOWANCE TO 0
+            SET ANUAL ALLOWANCE TO RANDOM
           </div>
           <div
             onClick={() => router.push("/users-by-salary")}
@@ -82,6 +85,12 @@ export default function Menu() {
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isLowestSalarySelected}`}
           >
             ORDER BY LOWEST SALARY
+          </div>
+          <div
+            onClick={() => router.push("/days-off-ordered")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${usersByLeastDAysSelected}`}
+          >
+            ORDER BY LEAST DAYS OFF
           </div>
         </>
       </div>
