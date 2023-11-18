@@ -1,3 +1,4 @@
+import { RefreshComponent } from "@/components/RefreshComponent/RefreshComponent";
 import { createItemForEachTable } from "@/utils/createItemForEachTable";
 import { createOrderItems } from "@/utils/createOrderItems";
 import { deleteAddedRecords } from "@/utils/deleteAddedRecords";
@@ -9,5 +10,5 @@ export default async function NewRecordsDeleted() {
 //   await createOrderItems()
   const data = await deleteAddedRecords();
 
-  return <pre className="text-2xl p-10">{data}</pre>;
+  return <pre className="text-2xl p-10">{data}<RefreshComponent/></pre>;
 }
