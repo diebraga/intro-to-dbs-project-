@@ -17,13 +17,13 @@ export async function deleteAddedRecords(): Promise<string> {
     await db.run(`DELETE FROM customers WHERE email = ?`, 'email@gmail.com');
 
     // Delete from 'deliveries'
-    await db.run(`DELETE FROM deliveries WHERE order_id = ?`, 1);
+    await db.run(`DELETE FROM deliveries WHERE order_id = ?`, 4);
 
     // Delete from 'orders'
-    await db.run(`DELETE FROM orders WHERE order_id = ?`, 1);
+    await db.run(`DELETE FROM orders WHERE order_id = ?`, 4);
 
     // Delete from 'order_items'
-    await db.run(`DELETE FROM order_items WHERE order_item_id = ?`, 1);
+    await db.run(`DELETE FROM order_items WHERE order_item_id = ?`, 4);
 
     return "Records deleted successfully";
   } catch (error) {

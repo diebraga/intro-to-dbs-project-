@@ -33,12 +33,12 @@ export async function createItemForEachTable(): Promise<string> {
 if (deliveryExists.count === 0) {
   await db.run(`INSERT INTO deliveries (order_id, delivery_date, delivered_at, created_at) VALUES (4, '2023-02-04', NULL, CURRENT_TIMESTAMP)`);
 }
+// Check and insert into 'orders'
+const orderExists = await db.get(`SELECT COUNT(*) as count FROM orders WHERE order_id = ?`, 4);
+if (orderExists.count === 0) {
+  await db.run(`INSERT INTO orders (customer_id, user_id, status, total, created_at) VALUES (1, 1, 'Processing', 150.00, CURRENT_TIMESTAMP)`);
+}
 
-    // Check and insert into 'orders'
-    const orderExists = await db.get(`SELECT COUNT(*) as count FROM orders WHERE order_id = ?`, 1);
-    if (orderExists.count === 0) {
-      await db.run(`INSERT INTO orders (customer_id, user_id, status, total, created_at) VALUES (1, 1, 'Processing', 150.00, CURRENT_TIMESTAMP)`);
-    }
 // Check and insert into 'order_items'
 const orderItemExists = await db.get(`SELECT COUNT(*) as count FROM order_items WHERE order_item_id = ?`, 4);
 if (orderItemExists.count === 0) {
