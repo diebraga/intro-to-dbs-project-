@@ -19,7 +19,7 @@ export default function Menu() {
     pathname === "/order-items" ? "underline" : "";
 
     const isDEleteRecorsSelected =
-    pathname === "/new-record-tables" ? "underline" : "";
+    pathname === "/delete-record-added" ? "underline" : "";
     const isNewRecordsSelected =
     pathname === "/new-record-tables" ? "underline" : "";
     const isOrdersSelected =
