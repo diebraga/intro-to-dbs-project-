@@ -12,7 +12,7 @@ export default function Menu() {
     pathname === "/set-anual-allowance" ? "underline" : "";
   const isAnualAllowance0Selected =
     pathname === "/set-anual-allowance-0" ? "underline" : "";
-    const isDeliverySelected =
+    const isDeliverySelected = 
     pathname === "/delivery" ? "underline" : "";
 
     const isOrderItemsSelected =
@@ -24,7 +24,8 @@ export default function Menu() {
     pathname === "/new-record-tables" ? "underline" : "";
     const isOrdersSelected =
     pathname === "/orders" ? "underline" : "";
-
+    const isCountStocksSelected =
+    pathname === "/count-products-in-stock" ? "underline" : "";
     const isStocksSelected =
     pathname === "/stocks" ? "underline" : "";
     const isLowestSalarySelected =
@@ -162,6 +163,12 @@ export default function Menu() {
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isStocksSelected}`}
           >
             SHOW ALL
+          </div>
+          <div
+            onClick={() => router.push("/count-products-in-stock")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isCountStocksSelected}`}
+          >
+            COUNT STOCK
           </div>
         </>
       </div>
