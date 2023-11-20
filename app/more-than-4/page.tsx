@@ -11,13 +11,16 @@ import Head from "next/head";
 
 export default async function MoreThan4() {
   // await deleteAllUsers()
-  
-const data = await listUsersOlderThanFourYears();
 
-return <pre className="text-xs">{JSON.stringify(data, null, 2)}
-<div className="text-xl text-blue-500">
-SELECT * FROM users <br/>
-      {'WHERE created_at < ["DATE"]'}
-</div>
+  const data = await listUsersOlderThanFourYears();
 
-</pre>;}
+  return (
+    <pre className="text-xs">
+      {JSON.stringify(data, null, 2)}
+      <div className="text-xl text-blue-500">
+        SELECT * FROM users <br />
+        {'WHERE created_at < ["DATE"]'}
+      </div>
+    </pre>
+  );
+}

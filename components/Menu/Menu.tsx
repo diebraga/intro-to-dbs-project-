@@ -12,49 +12,41 @@ export default function Menu() {
     pathname === "/set-anual-allowance" ? "underline" : "";
   const isAnualAllowance0Selected =
     pathname === "/set-anual-allowance-0" ? "underline" : "";
-    const isDeliverySelected = 
-    pathname === "/delivery" ? "underline" : "";
+  const isDeliverySelected = pathname === "/delivery" ? "underline" : "";
 
-    const isOrderItemsSelected =
-    pathname === "/order-items" ? "underline" : "";
+  const isOrderItemsSelected = pathname === "/order-items" ? "underline" : "";
 
-    const isDEleteRecorsSelected =
+  const isDEleteRecorsSelected =
     pathname === "/delete-record-added" ? "underline" : "";
-    const isNewRecordsSelected =
+  const isNewRecordsSelected =
     pathname === "/new-record-tables" ? "underline" : "";
-    const isOrdersSelected =
-    pathname === "/orders" ? "underline" : "";
-    const isCountStocksSelected =
+  const isOrdersSelected = pathname === "/orders" ? "underline" : "";
+  const isCountStocksSelected =
     pathname === "/count-products-in-stock" ? "underline" : "";
-    const isStocksSelected =
-    pathname === "/stocks" ? "underline" : "";
-    const isLowestSalarySelected =
+  const isStocksSelected = pathname === "/stocks" ? "underline" : "";
+  const isLowestSalarySelected =
     pathname === "/user-by-salary-low" ? "underline" : "";
-    const isCosumersSelected =
-    pathname === "/costumers" ? "underline" : "";
-    const isAdmToofcSelected =
+  const isCosumersSelected = pathname === "/costumers" ? "underline" : "";
+  const isCFindWroadSelected = pathname === "/find-w-road" ? "underline" : "";
+  const isAdmToofcSelected =
     pathname === "/adm-to-office-worker" ? "underline" : "";
-    const isOfcToAdmSelected =
+  const isOfcToAdmSelected =
     pathname === "/office-worker-to-adm" ? "underline" : "";
-    const isMoreThan4Selected =
-    pathname === "/more-than-4" ? "underline" : "";
-    const isSetProcessingSelected =
+  const isMoreThan4Selected = pathname === "/more-than-4" ? "underline" : "";
+  const isSetProcessingSelected =
     pathname === "/set-orders-proccessing" ? "underline" : "";
-    
-    const isSetPayedShipedSelected =
+
+  const isSetPayedShipedSelected =
     pathname === "/set-payed-shiped" ? "underline" : "";
 
-    const deleteOrderSixSelected =
+  const deleteOrderSixSelected =
     pathname === "/delete-order-6-old" ? "underline" : "";
 
-    const resetOrdersSelected =
-    pathname === "/reset-orders" ? "underline" : "";
+  const resetOrdersSelected = pathname === "/reset-orders" ? "underline" : "";
 
-
-
-    const usersByLeastDAysSelected =
+  const usersByLeastDAysSelected =
     pathname === "/days-off-ordered" ? "underline" : "";
-    const usersBySalarySelected =
+  const usersBySalarySelected =
     pathname === "/users-by-salary" ? "underline" : "";
   return (
     <div className="flex flex-wrap">
@@ -116,7 +108,6 @@ export default function Menu() {
           >
             MORE THAN 4 YRS WORKING
           </div>
-          
         </>
       </div>
       {/* <div className="text-sm ">
@@ -132,13 +123,21 @@ export default function Menu() {
         </>
       </div> */}
       <div className="text-sm ">
-        <div className={`p-3 font-medium text-yellow-600 `}>COSTUMERS TABLE</div>
+        <div className={`p-3 font-medium text-yellow-600 `}>
+          COSTUMERS TABLE
+        </div>
         <>
           <div
             onClick={() => router.push("/costumers")}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isCosumersSelected}`}
           >
             SHOW ALL
+          </div>
+          <div
+            onClick={() => router.push("/find-w-road")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isCFindWroadSelected}`}
+          >
+            FIND ALL WITH ROAD
           </div>
         </>
       </div>
@@ -209,9 +208,10 @@ export default function Menu() {
         </>
       </div>
 
-
       <div className="text-sm ">
-        <div className={`p-3 font-medium text-yellow-600 `}>ORDER_ITEMS TABLE</div>
+        <div className={`p-3 font-medium text-yellow-600 `}>
+          ORDER_ITEMS TABLE
+        </div>
         <>
           <div
             onClick={() => router.push("/order-items")}
@@ -222,7 +222,6 @@ export default function Menu() {
         </>
       </div>
 
-
       <div className="text-sm ">
         <div className={`p-3 font-medium text-yellow-600 `}>ACTIONS</div>
         <>
@@ -230,13 +229,13 @@ export default function Menu() {
             onClick={() => router.push("/new-record-tables")}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isNewRecordsSelected}`}
           >
-            {'Add one new record to each table'.toUpperCase()}
+            {"Add one new record to each table".toUpperCase()}
           </div>
           <div
             onClick={() => router.push("/delete-record-added")}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isDEleteRecorsSelected}`}
           >
-            {'DELETE ADDED RECORS ADDED'}
+            {"DELETE ADDED RECORS ADDED"}
           </div>
         </>
       </div>

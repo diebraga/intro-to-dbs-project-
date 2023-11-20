@@ -13,7 +13,7 @@ export default async function NewRecordsDeleted() {
     <>
       <pre className="text-lg p-10">
         {"Action won't work in production"}
-        <RefreshComponent />
+        {/* <RefreshComponent /> */}
       </pre>
 
       <div className="text-xl text-blue-500">
