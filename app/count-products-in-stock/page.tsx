@@ -7,6 +7,6 @@ export default async function Stocks() {
 
   return <pre className="text-xl p-6">
     Number of rows: <div className="text-blue-600">{data}</div>
-    <div>Query: <div className="text-blue-600">SELECT COUNT(*) as count FROM stock;</div></div>
+    <div><div className="text-blue-600">SELECT COUNT(*) as count FROM stock;</div></div>
     </pre>;
 }

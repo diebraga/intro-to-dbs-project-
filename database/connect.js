@@ -11,35 +11,40 @@ const db = new sqlite3.Database('./database.db', sqlite3.OPEN_READWRITE | sqlite
 
 // Create 'roles' and 'users' tables
 db.serialize(() => {
-  // Create 'roles' table
-  db.run(`
-    CREATE TABLE IF NOT EXISTS roles (
-      role_id INTEGER PRIMARY KEY,
-      role_name TEXT UNIQUE,
-      description TEXT,
-      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )
-  `, (err) => {
-    if (err) {
-      console.error('Error creating roles table', err.message);
-      return;
-    }
-    console.log('Created the "roles" table.');
+   // Create 'order_items' table
+   db.run(`
+   CREATE TABLE IF NOT EXISTS order_items (
+     order_item_id INTEGER PRIMARY KEY,
+     order_id INTEGER,
+     stock_id INTEGER,
+     quantity INTEGER,
+     unit_price DECIMAL(10, 2),
+     line_total DECIMAL(10, 2),
+     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+     updated_at TIMESTAMP,
+     FOREIGN KEY(order_id) REFERENCES orders(order_id),
+     FOREIGN KEY(stock_id) REFERENCES stock(stock_id)
+   )
+ `, (err) => {
+   if (err) {
+     console.error('Error creating order_items table', err.message);
+     return;
+   }
+   console.log('Created the "order_items" table.');
 
     // Create 'users' table
     db.run(`
-      CREATE TABLE IF NOT EXISTS users (
-        id INTEGER PRIMARY KEY,
-        username TEXT,
-        name TEXT,
-        surname TEXT UNIQUE,
-        password TEXT,
-        annual_leave_allowance INTEGER,
-        role_id INTEGER,
-        salary INTEGER,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY(role_id) REFERENCES roles(role_id)
-      )
+    CREATE TABLE IF NOT EXISTS users (
+      id INTEGER PRIMARY KEY,
+      username TEXT,
+      name TEXT,
+      surname TEXT UNIQUE,
+      password TEXT,
+      annual_leave_allowance INTEGER,
+      role VARCHAR,
+      salary INTEGER,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
     `, (err) => {
       if (err) {
         console.error('Error creating users table', err.message);
@@ -105,46 +110,23 @@ db.serialize(() => {
      }
      console.log('Created the "orders" table.');
    });
-
-    // Create 'order_items' table
-    db.run(`
-      CREATE TABLE IF NOT EXISTS order_items (
-        order_item_id INTEGER PRIMARY KEY,
-        order_id INTEGER,
-        stock_id INTEGER,
-        quantity INTEGER,
-        unit_price DECIMAL(10, 2),
-        line_total DECIMAL(10, 2),
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP,
-        FOREIGN KEY(order_id) REFERENCES orders(order_id),
-        FOREIGN KEY(stock_id) REFERENCES stock(stock_id)
-      )
-    `, (err) => {
-      if (err) {
-        console.error('Error creating order_items table', err.message);
-        return;
-      }
-      console.log('Created the "order_items" table.');
-    });
-
-    // Create 'deliveries' table
-    db.run(`
-      CREATE TABLE IF NOT EXISTS deliveries (
-        delivery_id INTEGER PRIMARY KEY,
-        order_id INTEGER,
-        delivery_date DATE,
-        delivered_at TIMESTAMP,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY(order_id) REFERENCES orders(order_id)
-      )
-    `, (err) => {
-      if (err) {
-        console.error('Error creating deliveries table', err.message);
-        return;
-      }
-      console.log('Created the "deliveries" table.');
-    });
+ // Create 'deliveries' table
+ db.run(`
+ CREATE TABLE IF NOT EXISTS deliveries (
+   delivery_id INTEGER PRIMARY KEY,
+   order_id INTEGER,
+   delivery_date DATE,
+   delivered_at TIMESTAMP,
+   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+   FOREIGN KEY(order_id) REFERENCES orders(order_id)
+ )
+`, (err) => {
+ if (err) {
+   console.error('Error creating deliveries table', err.message);
+   return;
+ }
+ console.log('Created the "deliveries" table.');
+});
   });
 });
 

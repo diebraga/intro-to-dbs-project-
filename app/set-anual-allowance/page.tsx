@@ -14,5 +14,8 @@ export default async function Home() {
   await updateAnnualLeaveAllowance(29);
   const data = await getAll("users");
 
-  return <pre className="text-xs">{JSON.stringify(data, null, 2)}</pre>;
+  return <pre className="text-xs">{JSON.stringify(data, null, 2)}
+    <div className="text-xl text-blue-500">UPDATE users SET annual_leave_allowance = 29</div>
+
+  </pre>;
 }

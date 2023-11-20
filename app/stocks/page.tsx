@@ -11,5 +11,9 @@ export default async function Stocks() {
 //   await createStocks();
   const data = await getAll("stock");
 
-  return <pre className="text-xs">{JSON.stringify(data, null, 2)}</pre>;
-}
+  return <pre className="text-xs">{JSON.stringify(data, null, 2)}
+  <div className="text-xl text-blue-500">
+  SELECT * FROM stock
+  </div>
+  
+  </pre>;}

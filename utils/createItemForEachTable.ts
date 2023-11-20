@@ -11,10 +11,10 @@ export async function createItemForEachTable(): Promise<string> {
     }
 
     // Check and insert into 'roles'
-    const roleExists = await db.get(`SELECT COUNT(*) as count FROM roles WHERE role_name = ?`, 'Kitchen Porter');
-    if (roleExists.count === 0) {
-      await db.run(`INSERT INTO roles (role_name, description, created_at) VALUES ('Kitchen Porter', 'Manages the kitchen', CURRENT_TIMESTAMP)`);
-    }
+    // const roleExists = await db.get(`SELECT COUNT(*) as count FROM roles WHERE role_name = ?`, 'Kitchen Porter');
+    // if (roleExists.count === 0) {
+    //   await db.run(`INSERT INTO roles (role_name, description, created_at) VALUES ('Kitchen Porter', 'Manages the kitchen', CURRENT_TIMESTAMP)`);
+    // }
 
     // Check and insert into 'users'
     const userExists = await db.get(`SELECT COUNT(*) as count FROM users WHERE username = ?`, 'user1');

@@ -9,5 +9,15 @@ export default async function UsersBySalary() {
 
   const data = await getUsersSortedBySalary("DESC");
 
-  return <pre className="text-xs">{JSON.stringify(data, null, 2)}</pre>;
+  return <pre className="text-xs">{JSON.stringify(data, null, 2)}
+    <div className="text-xl text-blue-500">
+      SELECT u.name, u.surname, u.role AS position, u.salary
+      <br/>
+      FROM users u
+      <br/>
+      ORDER BY u.salary DESC
+      
+    </div>
+
+  </pre>;
 }

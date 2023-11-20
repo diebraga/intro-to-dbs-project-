@@ -32,7 +32,10 @@ export default function Menu() {
     pathname === "/user-by-salary-low" ? "underline" : "";
     const isCosumersSelected =
     pathname === "/costumers" ? "underline" : "";
-
+    const isAdmToofcSelected =
+    pathname === "/adm-to-office-worker" ? "underline" : "";
+    const isOfcToAdmSelected =
+    pathname === "/office-worker-to-adm" ? "underline" : "";
     const isSetProcessingSelected =
     pathname === "/set-orders-proccessing" ? "underline" : "";
     
@@ -43,12 +46,12 @@ export default function Menu() {
     pathname === "/delete-order-6-old" ? "underline" : "";
 
     const resetOrdersSelected =
-    pathname === "/delete-order-6-old" ? "underline" : "";
+    pathname === "/reset-orders" ? "underline" : "";
 
 
 
     const usersByLeastDAysSelected =
-    pathname === "/users-by-salary" ? "underline" : "";
+    pathname === "/days-off-ordered" ? "underline" : "";
     const usersBySalarySelected =
     pathname === "/users-by-salary" ? "underline" : "";
   return (
@@ -93,9 +96,22 @@ export default function Menu() {
           >
             ORDER BY LEAST DAYS OFF
           </div>
+          <div
+            onClick={() => router.push("/adm-to-office-worker")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isAdmToofcSelected}`}
+          >
+            ADM TO OFFICE WORKER
+          </div>
+          <div
+            onClick={() => router.push("/office-worker-to-adm")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isOfcToAdmSelected}`}
+          >
+            OFFICE WORKER TO ADM
+          </div>
+          
         </>
       </div>
-      <div className="text-sm ">
+      {/* <div className="text-sm ">
         <div className={`p-3 font-medium text-yellow-600 `}>ROLES TABLE</div>
 
         <>
@@ -106,7 +122,7 @@ export default function Menu() {
             SHOW ALL
           </div>
         </>
-      </div>
+      </div> */}
       <div className="text-sm ">
         <div className={`p-3 font-medium text-yellow-600 `}>COSTUMERS TABLE</div>
         <>

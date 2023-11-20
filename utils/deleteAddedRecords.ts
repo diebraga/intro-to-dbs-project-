@@ -8,7 +8,7 @@ export async function deleteAddedRecords(): Promise<string> {
     await db.run(`DELETE FROM stock WHERE description = ?`, 'Royal bonds');
 
     // Delete from 'roles'
-    await db.run(`DELETE FROM roles WHERE role_name = ?`, 'Kitchen Porter');
+    // await db.run(`DELETE FROM roles WHERE role_name = ?`, 'Kitchen Porter');
 
     // Delete from 'users'
     await db.run(`DELETE FROM users WHERE username = ?`, 'user1');

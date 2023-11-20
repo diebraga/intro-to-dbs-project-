@@ -17,7 +17,7 @@ export async function createRoles() {
   const roles = [
     { role_name: 'CEO', description: 'Chief Executive Officer' },
     { role_name: 'Manager', description: 'Sales Manager' },
-    { role_name: 'Sales Representative', description: 'Responsible for selling lawnmowers' },
+    { role_name: 'Office Worker', description: 'Responsible for office works' },
   ];
 
   try {

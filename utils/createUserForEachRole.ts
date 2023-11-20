@@ -13,10 +13,10 @@ export async function createUserForEachRole(): Promise<void> {
       const insertPromises = users.map(async (user) => {
         const hashedPassword = await bcrypt.hash(user.password, saltRounds);
         const sql = `
-          INSERT INTO users (username, name, surname, password, annual_leave_allowance, role_id, salary)
+          INSERT INTO users (username, name, surname, password, annual_leave_allowance, salary, role)
           VALUES (?, ?, ?, ?, ?, ?, ?)
         `;
-        await db.run(sql, [user.username, user.name, user.surname, hashedPassword, user.annualLeaveAllowance, user.roleId, user.salary]);
+        await db.run(sql, [user.username, user.name, user.surname, hashedPassword, user.annualLeaveAllowance, user.salary, user.role]);
         console.log(`User ${user.username} inserted successfully with password ${user.password}`);
       });
 

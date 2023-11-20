@@ -6,7 +6,7 @@ export const users = [
         surname: "Braga",
         username: "diebraga",
         password: generateRandomPassword(10),
-        roleId: 1,
+        role: "ceo",
         annualLeaveAllowance: 20 ,
         salary: 90000
     },
@@ -15,7 +15,7 @@ export const users = [
         surname: "Silva",
         username: "anasilva",
         password: generateRandomPassword(10),
-        roleId: 2,
+        role: "Administrator",
         annualLeaveAllowance: 20,
         salary: 50000
     },
@@ -24,7 +24,7 @@ export const users = [
         surname: "Costa",
         username: "luizcosta",
         password: generateRandomPassword(10),
-        roleId: 3,
+        role: "Office Worker",
         annualLeaveAllowance: 20,
         salary: 40000
     }
