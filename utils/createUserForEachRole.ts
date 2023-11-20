@@ -8,22 +8,20 @@ export async function createUserForEachRole(): Promise<void> {
   const saltRounds = 10; 
 
   try {
-    const userAlreadyExist = await getUserByUsername(users[0].username)
-    if (!userAlreadyExist) {
-      const insertPromises = users.map(async (user) => {
+    for (const user of users) {
+      const userAlreadyExist = await getUserByUsername(user.username);
+
+      if (!userAlreadyExist) {
         const hashedPassword = await bcrypt.hash(user.password, saltRounds);
         const sql = `
-          INSERT INTO users (username, name, surname, password, annual_leave_allowance, salary, role)
-          VALUES (?, ?, ?, ?, ?, ?, ?)
+          INSERT INTO users (username, name, surname, password, annual_leave_allowance, salary, role, address, created_at)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         `;
-        await db.run(sql, [user.username, user.name, user.surname, hashedPassword, user.annualLeaveAllowance, user.salary, user.role]);
-        console.log(`User ${user.username} inserted successfully with password ${user.password}`);
-      });
-
-      // Wait for all user insertions to complete
-      await Promise.all(insertPromises);    
-    } else {
-      throw new Error(`User with username '${users[0].username}' already exists.`);
+        await db.run(sql, [user.username, user.name, user.surname, hashedPassword, user.annualLeaveAllowance, user.salary, user.role, user.address, user.created_at]);
+        console.log(`User ${user.username} inserted successfully.`);
+      } else {
+        console.log(`User with username '${user.username}' already exists.`);
+      }
     }
   } catch (error: any) {
     console.error(error.message);

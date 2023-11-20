@@ -7,8 +7,10 @@ export const users = [
         username: "diebraga",
         password: generateRandomPassword(10),
         role: "ceo",
-        annualLeaveAllowance: 20 ,
-        salary: 90000
+        annualLeaveAllowance: 20,
+        salary: 90000,
+        address: "Road 42 High Street",
+        created_at: "2021-01-10"
     },
     {
         name: "Ana",
@@ -17,7 +19,9 @@ export const users = [
         password: generateRandomPassword(10),
         role: "Administrator",
         annualLeaveAllowance: 20,
-        salary: 50000
+        salary: 50000,
+        address: "238 Chuo Dori",
+        created_at: "2021-01-10" 
     },
     {
         name: "Luiz",
@@ -26,6 +30,8 @@ export const users = [
         password: generateRandomPassword(10),
         role: "Office Worker",
         annualLeaveAllowance: 20,
-        salary: 40000
+        salary: 40000,
+        address: "Road EH1 1TG Scotland, UK",
+        created_at: "2015-04-15" 
     }
 ];

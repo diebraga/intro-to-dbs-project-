@@ -19,7 +19,7 @@ export async function createItemForEachTable(): Promise<string> {
     // Check and insert into 'users'
     const userExists = await db.get(`SELECT COUNT(*) as count FROM users WHERE username = ?`, 'user1');
     if (userExists.count === 0) {
-      await db.run(`INSERT INTO users (username, name, surname, password, annual_leave_allowance, role_id, salary, created_at) VALUES ('user1', 'John', 'Ross', 'password123', 20, 1, 50000, CURRENT_TIMESTAMP)`);
+      await db.run(`INSERT INTO users (username, name, surname, password, annual_leave_allowance, role, salary, created_at, address) VALUES ('user1', 'John', 'Ross', 'password123', 20, 'Sales Manager', 50000, CURRENT_TIMESTAMP, Chiyoda-ku, Tokyo)`);
     }
 
     // Check and insert into 'customers'

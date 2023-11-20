@@ -36,6 +36,8 @@ export default function Menu() {
     pathname === "/adm-to-office-worker" ? "underline" : "";
     const isOfcToAdmSelected =
     pathname === "/office-worker-to-adm" ? "underline" : "";
+    const isMoreThan4Selected =
+    pathname === "/more-than-4" ? "underline" : "";
     const isSetProcessingSelected =
     pathname === "/set-orders-proccessing" ? "underline" : "";
     
@@ -107,6 +109,12 @@ export default function Menu() {
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isOfcToAdmSelected}`}
           >
             OFFICE WORKER TO ADM
+          </div>
+          <div
+            onClick={() => router.push("/more-than-4")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isMoreThan4Selected}`}
+          >
+            MORE THAN 4 YRS WORKING
           </div>
           
         </>

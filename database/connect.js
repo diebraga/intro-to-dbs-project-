@@ -32,25 +32,27 @@ db.serialize(() => {
    }
    console.log('Created the "order_items" table.');
 
-    // Create 'users' table
+
+    // Create 'users' table with address
     db.run(`
-    CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY,
-      username TEXT,
-      name TEXT,
-      surname TEXT UNIQUE,
-      password TEXT,
-      annual_leave_allowance INTEGER,
-      role VARCHAR,
-      salary INTEGER,
-      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )
+      CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY,
+        username TEXT,
+        name TEXT,
+        surname TEXT UNIQUE,
+        password TEXT,
+        address VARCHAR,  
+        annual_leave_allowance INTEGER,
+        role VARCHAR,
+        salary INTEGER,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
     `, (err) => {
       if (err) {
         console.error('Error creating users table', err.message);
         return;
       }
-      console.log('Created the "users" table.');
+      console.log('Created the "users".');
     });
 
     // Create 'customers' table
