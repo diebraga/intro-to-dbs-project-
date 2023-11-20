@@ -11,13 +11,15 @@ import Head from "next/head";
 export default async function Adm() {
   // await deleteAllUsers()
   await changeJobTitle("Administrator", "Office Worker");
-  
-const data = await getAll("users");
 
-return <pre className="text-xs">{JSON.stringify(data, null, 2)}
-<div className="text-xl text-blue-500">
-UPDATE users SET role = ? WHERE role = ?", [newTitle, currentTitle]  
+  const data = await getAll("users");
 
-</div>
-
-</pre>;}
+  return (
+    <pre className="text-xs">
+      {JSON.stringify(data, null, 2)}
+      <div className="text-xl text-blue-500">
+        {'UPDATE users SET role = ? WHERE role = ?", [newTitle, currentTitle]'}
+      </div>
+    </pre>
+  );
+}
