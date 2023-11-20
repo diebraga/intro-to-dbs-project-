@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 export default async function NewRecords() {
   // await deleteAllUsers()
   //   await createOrderItems()
-  const data = await createItemForEachTable();
+  // const data = await createItemForEachTable();
 
   return (
     <>

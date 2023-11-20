@@ -3,7 +3,7 @@ import { getAll } from "@/utils/getAll";
 
 export default async function Orders() {
   // await deleteAllUsers()
-  await deleteOrder6monthsOld();
+  // await deleteOrder6monthsOld();
   const data = await getAll("orders");
 
   return (

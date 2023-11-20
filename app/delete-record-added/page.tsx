@@ -7,7 +7,7 @@ import { getAll } from "@/utils/getAll";
 export default async function NewRecordsDeleted() {
   // await deleteAllUsers()
   //   await createOrderItems()
-  const data = await deleteAddedRecords();
+  // const data = await deleteAddedRecords();
 
   return (
     <>
