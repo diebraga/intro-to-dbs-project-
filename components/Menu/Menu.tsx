@@ -12,6 +12,10 @@ export default function Menu() {
     pathname === "/set-anual-allowance" ? "underline" : "";
   const isAnualAllowance0Selected =
     pathname === "/set-anual-allowance-0" ? "underline" : "";
+  const isAllDelCourierSelected =
+    pathname === "/all-del-courier" ? "underline" : "";
+  const isResetDelSelected = pathname === "/reset-del" ? "underline" : "";
+
   const isDeliverySelected = pathname === "/delivery" ? "underline" : "";
 
   const isOrderItemsSelected = pathname === "/order-items" ? "underline" : "";
@@ -204,6 +208,18 @@ export default function Menu() {
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isDeliverySelected}`}
           >
             SHOW ALL
+          </div>
+          <div
+            onClick={() => router.push("/all-del-courier")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isAllDelCourierSelected}`}
+          >
+            SET ALL COURIER
+          </div>
+          <div
+            onClick={() => router.push("/reset-del")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isResetDelSelected}`}
+          >
+            RESET ALL
           </div>
         </>
       </div>
