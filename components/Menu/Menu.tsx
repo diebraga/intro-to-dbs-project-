@@ -19,7 +19,9 @@ export default function Menu() {
   const isDeliverySelected = pathname === "/delivery" ? "underline" : "";
 
   const isOrderItemsSelected = pathname === "/order-items" ? "underline" : "";
-
+  const isServicesSelected = pathname === "/services" ? "underline" : "";
+  const is6ServicesSelected =
+    pathname === "/list-6-months-services" ? "underline" : "";
   const isDEleteRecorsSelected =
     pathname === "/delete-record-added" ? "underline" : "";
   const isNewRecordsSelected =
@@ -253,6 +255,23 @@ export default function Menu() {
         </>
       </div>
 
+      <div className="text-sm ">
+        <div className={`p-3 font-medium text-yellow-600 `}>SERVICES</div>
+        <>
+          <div
+            onClick={() => router.push("/services")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isServicesSelected}`}
+          >
+            SHOW ALL
+          </div>
+          <div
+            onClick={() => router.push("/list-6-months-services")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${is6ServicesSelected}`}
+          >
+            LIST 6 MONTHS SERVICES
+          </div>
+        </>
+      </div>
       <div className="text-sm ">
         <div className={`p-3 font-medium text-yellow-600 `}>ACTIONS</div>
         <>

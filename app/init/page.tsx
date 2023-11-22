@@ -4,6 +4,7 @@ import { LoginForm } from "@/components/LoginForm/LoginForm";
 import Menu from "@/components/Menu/Menu";
 import { createCustomers } from "@/utils/createCostumers";
 import { createDeliveries } from "@/utils/createDeliveries";
+import { createLawnmowerServices } from "@/utils/createLawnmowerServices";
 import { createOrderItems } from "@/utils/createOrderItems";
 import { createOrders } from "@/utils/createOrders";
 import { createRoles } from "@/utils/createRoles";
@@ -19,7 +20,7 @@ export default async function Init() {
   await createOrderItems()
 await createStocks()
 await createDeliveries()
-
+await createLawnmowerServices()
   // await deleteAllUsers()
 // await createRoles()
   return (

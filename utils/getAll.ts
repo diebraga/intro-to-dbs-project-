@@ -1,6 +1,13 @@
-import { openDb } from '@/database/openDb';
+import { openDb } from "@/database/openDb";
 
-type Table = "customers" | "users" |"orders"|"stock"|"deliveries"|"order_items"
+type Table =
+  | "customers"
+  | "users"
+  | "orders"
+  | "stock"
+  | "deliveries"
+  | "order_items"
+  | "services";
 export async function getAll(table: Table) {
   const db = await openDb();
 
@@ -10,7 +17,7 @@ export async function getAll(table: Table) {
     return customers;
   } catch (error) {
     console.error(`Error fetching all ${table}:`, error);
-    throw error; 
+    throw error;
   } finally {
     await db.close();
   }

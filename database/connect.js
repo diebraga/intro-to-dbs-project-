@@ -150,6 +150,25 @@ db.serialize(() => {
           console.log('Created the "deliveries" table.');
         }
       );
+
+      db.run(
+        `
+        CREATE TABLE IF NOT EXISTS services (
+          service_id INTEGER PRIMARY KEY,
+          service_name VARCHAR(255),
+          duration_months INTEGER,
+          monthly_cost DECIMAL(10, 2),
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+        `,
+        (err) => {
+          if (err) {
+            console.error("Error creating services table", err.message);
+            return;
+          }
+          console.log('Created the "services" table.');
+        }
+      );
     }
   );
 });
