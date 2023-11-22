@@ -7,7 +7,8 @@ type Table =
   | "stock"
   | "deliveries"
   | "order_items"
-  | "services";
+  | "services"
+  | "company_directory";
 export async function getAll(table: Table) {
   const db = await openDb();
 

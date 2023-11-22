@@ -7,7 +7,6 @@ export default function Menu() {
   const router = useRouter();
   const pathname = usePathname();
   const isRootSelected = pathname === "/" ? "underline" : "";
-  const isRolesSelected = pathname === "/roles" ? "underline" : "";
   const isAnualAllowanceSelected =
     pathname === "/set-anual-allowance" ? "underline" : "";
   const isAnualAllowance0Selected =
@@ -17,8 +16,13 @@ export default function Menu() {
   const isResetDelSelected = pathname === "/reset-del" ? "underline" : "";
 
   const isDeliverySelected = pathname === "/delivery" ? "underline" : "";
+  const isSetPhoneSelected =
+    pathname === "/set-phone-number" ? "underline" : "";
+  const isResetPhoneSelected =
+    pathname === "/reset-phone-number" ? "underline" : "";
 
   const isOrderItemsSelected = pathname === "/order-items" ? "underline" : "";
+  const isCompanySelected = pathname === "/company" ? "underline" : "";
   const isServicesSelected = pathname === "/services" ? "underline" : "";
   const is6ServicesSelected =
     pathname === "/list-6-months-services" ? "underline" : "";
@@ -162,6 +166,7 @@ export default function Menu() {
           </div>
         </>
       </div>
+
       <div className="text-sm ">
         <div className={`p-3 font-medium text-yellow-600 `}>ORDERS TABLE</div>
 
@@ -255,6 +260,31 @@ export default function Menu() {
         </>
       </div>
 
+      <div className="text-sm ">
+        <div className={`p-3 font-medium text-yellow-600 `}>
+          {"company_directory".toUpperCase()} TABLE
+        </div>
+        <>
+          <div
+            onClick={() => router.push("/company")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isCompanySelected}`}
+          >
+            SHOW ALL
+          </div>
+          <div
+            onClick={() => router.push("/set-phone-number")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isSetPhoneSelected}`}
+          >
+            SET OFFICE PHONE NUMBER
+          </div>{" "}
+          <div
+            onClick={() => router.push("/reset-phone-number")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isResetPhoneSelected}`}
+          >
+            RESET OFFICE PHONE NUMBER
+          </div>
+        </>
+      </div>
       <div className="text-sm ">
         <div className={`p-3 font-medium text-yellow-600 `}>SERVICES</div>
         <>

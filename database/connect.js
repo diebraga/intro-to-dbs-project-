@@ -150,7 +150,7 @@ db.serialize(() => {
           console.log('Created the "deliveries" table.');
         }
       );
-
+      // services
       db.run(
         `
         CREATE TABLE IF NOT EXISTS services (
@@ -167,6 +167,30 @@ db.serialize(() => {
             return;
           }
           console.log('Created the "services" table.');
+        }
+      );
+      // company_directory
+      db.run(
+        `
+        CREATE TABLE IF NOT EXISTS company_directory (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          name_company VARCHAR(255) NOT NULL,
+          phone_number VARCHAR(20),
+          address VARCHAR(255),
+          email VARCHAR(100),
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+          updated_at TIMESTAMP
+        )
+        `,
+        (err) => {
+          if (err) {
+            console.error(
+              "Error creating company_directory table",
+              err.message
+            );
+            return;
+          }
+          console.log('Created the "company_directory" table.');
         }
       );
     }
