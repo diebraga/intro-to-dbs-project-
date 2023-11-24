@@ -22,6 +22,11 @@ export default function Menu() {
     pathname === "/reset-phone-number" ? "underline" : "";
 
   const isOrderItemsSelected = pathname === "/order-items" ? "underline" : "";
+  const isDaysSelected = pathname === "/days" ? "underline" : "";
+  const isSetSundaySelected =
+    pathname === "/set-sunday-closed" ? "underline" : "";
+  const isReSetSundaySelected = pathname === "/reset-sunday" ? "underline" : "";
+
   const isCompanySelected = pathname === "/company" ? "underline" : "";
   const isServicesSelected = pathname === "/services" ? "underline" : "";
   const is6ServicesSelected =
@@ -265,9 +270,21 @@ export default function Menu() {
         <>
           <div
             onClick={() => router.push("/days")}
-            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isOrderItemsSelected}`}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isDaysSelected}`}
           >
             SHOW ALL
+          </div>
+          <div
+            onClick={() => router.push("/set-sunday-closed")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isSetSundaySelected}`}
+          >
+            SET SUNDAY CLOSED
+          </div>{" "}
+          <div
+            onClick={() => router.push("/reset-sunday")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isReSetSundaySelected}`}
+          >
+            RESET SUNDAY
           </div>
         </>
       </div>
