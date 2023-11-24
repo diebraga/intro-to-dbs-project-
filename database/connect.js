@@ -26,7 +26,6 @@ db.serialize(() => {
      unit_price DECIMAL(10, 2),
      line_total DECIMAL(10, 2),
      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-     updated_at TIMESTAMP,
      FOREIGN KEY(order_id) REFERENCES orders(order_id),
      FOREIGN KEY(stock_id) REFERENCES stock(stock_id)
    )
@@ -85,19 +84,17 @@ db.serialize(() => {
         }
       );
 
-      // Create 'stock' table
       db.run(
         `
-      CREATE TABLE IF NOT EXISTS stock (
-        stock_id INTEGER PRIMARY KEY,
-        description VARCHAR(255),
-        price DECIMAL(10, 2),
-        quantity_in_stock INTEGER,
-        last_ordered_date DATE,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP
-      )
-    `,
+        CREATE TABLE IF NOT EXISTS stock (
+          stock_id INTEGER PRIMARY KEY,
+          description VARCHAR(255),
+          price DECIMAL(10, 2),
+          quantity_in_stock INTEGER,
+          last_ordered_date DATE,
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+      `,
         (err) => {
           if (err) {
             console.error("Error creating stock table", err.message);
@@ -191,6 +188,28 @@ db.serialize(() => {
             return;
           }
           console.log('Created the "company_directory" table.');
+        }
+      );
+      // Create 'days' table
+      db.run(
+        `
+    CREATE TABLE IF NOT EXISTS days (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      company_id INTEGER,
+      day_of_week VARCHAR(10),
+      opening_hour TIME NULL,
+      closing_hour TIME NULL,
+      status VARCHAR(10),
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY(company_id) REFERENCES company_directory(id)
+    )
+    `,
+        (err) => {
+          if (err) {
+            console.error("Error creating days table", err.message);
+            return;
+          }
+          console.log('Created the "days" table.');
         }
       );
     }

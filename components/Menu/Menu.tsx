@@ -261,6 +261,18 @@ export default function Menu() {
       </div>
 
       <div className="text-sm ">
+        <div className={`p-3 font-medium text-yellow-600 `}>DAYS</div>
+        <>
+          <div
+            onClick={() => router.push("/days")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isOrderItemsSelected}`}
+          >
+            SHOW ALL
+          </div>
+        </>
+      </div>
+
+      <div className="text-sm ">
         <div className={`p-3 font-medium text-yellow-600 `}>
           {"company_directory".toUpperCase()} TABLE
         </div>

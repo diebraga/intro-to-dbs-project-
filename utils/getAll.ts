@@ -8,14 +8,16 @@ type Table =
   | "deliveries"
   | "order_items"
   | "services"
+  | "days"
   | "company_directory";
+
 export async function getAll(table: Table) {
   const db = await openDb();
 
   try {
     const sql = `SELECT * FROM ${table}`;
-    const customers = await db.all(sql);
-    return customers;
+    const itens = await db.all(sql);
+    return itens;
   } catch (error) {
     console.error(`Error fetching all ${table}:`, error);
     throw error;

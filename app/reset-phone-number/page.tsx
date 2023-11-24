@@ -11,6 +11,7 @@ export default async function SetPhoneNumber() {
       {JSON.stringify(data, null, 2)}
       <div className="text-xl text-blue-500">
         UPDATE company_directory
+        <br />
         {"SET phone_number = '01-2345678'"}
         <br />
         {"WHERE name_company = 'Introduction to dbs Company'"}{" "}

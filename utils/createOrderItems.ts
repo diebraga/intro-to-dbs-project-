@@ -26,8 +26,8 @@ export async function createOrderItems(): Promise<void> {
       if (count === 0) {
         // Order item does not exist, so insert it
         const sqlInsert = `
-          INSERT INTO order_items (order_item_id, order_id, stock_id, quantity, unit_price, line_total, created_at, updated_at)
-          VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+          INSERT INTO order_items (order_item_id, order_id, stock_id, quantity, unit_price, line_total, created_at)
+          VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
         `;
         await db.run(sqlInsert, item.order_item_id, item.order_id, item.stock_id, item.quantity, item.unit_price, item.quantity * item.unit_price);
         console.log(`Order item ${item.order_item_id} inserted successfully.`);

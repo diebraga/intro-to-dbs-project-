@@ -11,7 +11,7 @@ export async function createItemForEachTable(): Promise<string> {
     );
     if (stockExists.count === 0) {
       await db.run(
-        `INSERT INTO stock (description, price, quantity_in_stock, last_ordered_date, created_at, updated_at) VALUES ('Royal bonds', 20.50, 100, '2023-01-01', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)`
+        `INSERT INTO stock (description, price, quantity_in_stock, last_ordered_date, created_at) VALUES ('Royal bonds', 20.50, 100, '2023-01-01', CURRENT_TIMESTAMP)`
       );
     }
 
@@ -71,7 +71,7 @@ export async function createItemForEachTable(): Promise<string> {
     );
     if (orderItemExists.count === 0) {
       await db.run(
-        `INSERT INTO order_items (order_item_id, order_id, stock_id, quantity, unit_price, line_total, created_at, updated_at) VALUES (4, 1, 2, 10, 15.00, 150.00, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)`
+        `INSERT INTO order_items (order_item_id, order_id, stock_id, quantity, unit_price, line_total, created_at) VALUES (4, 1, 2, 10, 15.00, 150.00, CURRENT_TIMESTAMP)`
       );
     }
 

@@ -26,8 +26,8 @@ export async function createStocks(): Promise<void> {
       if (count === 0) {
         // Item does not exist, so insert it
         const sqlInsert = `
-          INSERT INTO stock (stock_id, description, price, quantity_in_stock, last_ordered_date, created_at, updated_at)
-          VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+          INSERT INTO stock (stock_id, description, price, quantity_in_stock, last_ordered_date, created_at)
+          VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
         `;
         await db.run(sqlInsert, item.stock_id, item.description, item.price, item.quantity_in_stock, item.last_ordered_date);
         console.log(`Stock item ${item.stock_id} inserted successfully.`);

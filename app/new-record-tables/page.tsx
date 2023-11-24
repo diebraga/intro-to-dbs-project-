@@ -19,8 +19,7 @@ export default async function NewRecords() {
       <div className="text-xl text-blue-500">
         INSERT INTO stock
         <br />
-        (description, price, quantity_in_stock, last_ordered_date, created_at,
-        updated_at)
+        (description, price, quantity_in_stock, last_ordered_date, created_at)
         <br />
         VALUES
         {
@@ -63,7 +62,7 @@ export default async function NewRecords() {
         INSERT INTO order_items
         <br />
         (order_item_id, order_id, stock_id, quantity, unit_price, line_total,
-        created_at, updated_at)
+        created_at)
         <br />
         VALUES (4, 1, 2, 10, 15.00, 150.00, CURRENT_TIMESTAMP,
         CURRENT_TIMESTAMP);
