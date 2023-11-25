@@ -1,10 +1,4 @@
-import { createDeliveries } from "@/utils/createDeliveries";
-import { createOrders } from "@/utils/createOrders";
-import { createStocks } from "@/utils/createStocks";
 import { getAll } from "@/utils/getAll";
-import { getUsersSortedBySalary } from "@/utils/getUsersSortedBySalary";
-import { setAllOrdersToProcessing } from "@/utils/setAllOrdersStatusToProccessing";
-import { setOrdersToShipped } from "@/utils/setPayedToShiped";
 import { updateDeliveryMethod } from "@/utils/updateDeliveryMethod";
 
 const updates = [

@@ -1,7 +1,6 @@
 import { getAll } from "@/utils/getAll";
 
 export default async function Stocks() {
-  //   await createStocks();
   const data = await getAll("services");
 
   return (
