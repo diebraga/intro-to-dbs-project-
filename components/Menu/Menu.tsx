@@ -259,8 +259,8 @@ export default function Menu() {
           <div
             onClick={() => {
               setDelFromMan("DEL_ALL_FROM_MAN=true");
-              router.push(
-                `/delete-all-from-manufacturer?${delAffFromMan}${
+              router.replace(
+                `/delete-all-from-manufacturer?DEL_ALL_FROM_MAN=true${
                   delAffFromMan ? "&" : ""
                 }`
               );
@@ -272,8 +272,10 @@ export default function Menu() {
           <div
             onClick={() => {
               setDelFromMan("DEL_ALL_FROM_MAN=false");
-              router.push(
-                `/reset-from-manu?${delAffFromMan}${delAffFromMan ? "&" : ""}`
+              router.replace(
+                `/reset-from-manu?DEL_ALL_FROM_MAN=false${
+                  delAffFromMan ? "&" : ""
+                }`
               );
             }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isResetFromManSelected}`}

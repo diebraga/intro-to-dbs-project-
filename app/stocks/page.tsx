@@ -6,7 +6,12 @@ export default async function Stocks() {
 
   return (
     <pre className="text-xs">
-      <RenderComponent data={data} query="DEL_ALL_FROM_MAN" />
+      <RenderComponent
+        data={data}
+        query="DEL_ALL_FROM_MAN"
+        k="manufacturer"
+        field="LawnMaster"
+      />
 
       <div className="text-xl text-blue-500">SELECT * FROM product</div>
     </pre>

@@ -8,7 +8,12 @@ export default async function Days() {
 
   return (
     <pre className="text-xs">
-      <RenderComponent data={data} query="DEL_ALL_FROM_MAN" />
+      <RenderComponent
+        data={data}
+        query="DEL_ALL_FROM_MAN"
+        k="manufacturer"
+        field="LawnMaster"
+      />
       <div className="text-xl text-blue-500">
         {`UPDATE product SET category = "on-Special" WHERE category = "Lawnmowers"`}
       </div>
