@@ -1,6 +1,6 @@
+import { RenderComponent } from "@/components/RenderComponent/RenderComponent";
 import { createOrders } from "@/utils/createOrders";
 import { getAll } from "@/utils/getAll";
-import { setAllOrdersToProcessing } from "@/utils/setAllOrdersStatusToProccessing";
 import { setOrdersToShipped } from "@/utils/setPayedToShiped";
 
 export default async function Orders() {
@@ -9,7 +9,13 @@ export default async function Orders() {
 
   return (
     <pre className="text-xs">
-      {JSON.stringify(data, null, 2)}
+      <RenderComponent
+        data={data}
+        query="DEL_6_MONTHS"
+        k="created_at"
+        field="2013-04-25T00:32:08.753Z"
+        count={false}
+      />{" "}
       <div>
         Imagine our backend has a webhook that watches the <br />
         payments and returns order one and two have been payed

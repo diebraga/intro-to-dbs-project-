@@ -1,3 +1,4 @@
+import { RenderComponent } from "@/components/RenderComponent/RenderComponent";
 import { createOrders } from "@/utils/createOrders";
 import { getAll } from "@/utils/getAll";
 import { setAllOrdersToProcessing } from "@/utils/setAllOrdersStatusToProccessing";
@@ -9,7 +10,13 @@ export default async function Orders() {
 
   return (
     <pre className="text-xs">
-      {JSON.stringify(data, null, 2)}
+      <RenderComponent
+        data={data}
+        query="DEL_6_MONTHS"
+        k="created_at"
+        field="2013-04-25T00:32:08.753Z"
+        count={false}
+      />{" "}
       <div className="text-xl text-blue-500">
         {"UPDATE orders SET status = 'Processing'"}
       </div>

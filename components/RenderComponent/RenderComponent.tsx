@@ -7,17 +7,20 @@ export function RenderComponent<T>({
   data,
   k,
   field,
+  count,
 }: {
   query: string;
   data: T[] | any[];
   k: string;
   field: string;
+  count?: boolean;
 }) {
   const searchParams = useSearchParams();
 
   const hasQuery = searchParams.get(query);
 
   const filteredProducts = data.filter((item) => item[k] !== field);
+
   return (
     <>
       {JSON.stringify(hasQuery === "true" ? filteredProducts : data, null, 2)}

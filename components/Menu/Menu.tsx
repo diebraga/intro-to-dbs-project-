@@ -11,7 +11,7 @@ export default function Menu() {
     "delAffFromMan",
     ""
   );
-
+  const [del6months, setdel6months] = useLocalStorage<string>("del6months", "");
   const isRootSelected = pathname === "/" ? "underline" : "";
   const isAnualAllowanceSelected =
     pathname === "/set-anual-allowance" ? "underline" : "";
@@ -179,31 +179,47 @@ export default function Menu() {
 
         <>
           <div
-            onClick={() => router.push("/orders")}
+            onClick={() =>
+              router.push(`/orders?${del6months}${del6months ? "&" : ""}`)
+            }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isOrdersSelected}`}
           >
             SHOW ALL
           </div>
           <div
-            onClick={() => router.push("/set-orders-proccessing")}
+            onClick={() =>
+              router.push(
+                `/set-orders-proccessing?${del6months}${del6months ? "&" : ""}`
+              )
+            }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isSetProcessingSelected}`}
           >
             SET ALL PROCCESSING
           </div>
           <div
-            onClick={() => router.push("/set-payed-shiped")}
+            onClick={() =>
+              router.push(
+                `/set-payed-shiped?${del6months}${del6months ? "&" : ""}`
+              )
+            }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isSetPayedShipedSelected}`}
           >
             SET PAYED SHIPED
           </div>
           <div
-            onClick={() => router.push("/delete-order-6-old")}
+            onClick={() => {
+              setdel6months("DEL_6_MONTHS=true");
+              router.replace(`/delete-order-6-old?DEL_6_MONTHS=true`);
+            }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${deleteOrderSixSelected}`}
           >
             DELETE MORE THAN 6 MONTHS OLD
           </div>
           <div
-            onClick={() => router.push("/reset-orders")}
+            onClick={() => {
+              setdel6months("DEL_6_MONTHS=false");
+              router.replace(`/reset-orders?DEL_6_MONTHS=false`);
+            }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${resetOrdersSelected}`}
           >
             RESET ORDERS
