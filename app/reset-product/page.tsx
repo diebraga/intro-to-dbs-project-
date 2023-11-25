@@ -1,3 +1,4 @@
+import { RenderComponent } from "@/components/RenderComponent/RenderComponent";
 import { getAll } from "@/utils/getAll";
 import { changeCategoryName } from "@/utils/setCategoryProductsOnSpecial";
 
@@ -7,7 +8,7 @@ export default async function Days() {
 
   return (
     <pre className="text-xs">
-      {JSON.stringify(data, null, 2)}
+      <RenderComponent data={data} query="DEL_ALL_FROM_MAN" />
       <div className="text-xl text-blue-500">
         {`UPDATE product SET category = "on-Special" WHERE category = "Lawnmowers"`}
       </div>
