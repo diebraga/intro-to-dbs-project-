@@ -1,30 +1,28 @@
 import GetAllUsers from "@/components/GetAllUsers/GetAllUsers";
-import HomeWrapper from "@/components/HomeWrapper/HomeWrapper";
-import { LoginForm } from "@/components/LoginForm/LoginForm";
-import Menu from "@/components/Menu/Menu";
-import { createCustomers } from "@/utils/createCostumers";
-import { createDeliveries } from "@/utils/createDeliveries";
-import { createOrderItems } from "@/utils/createOrderItems";
-import { createOrders } from "@/utils/createOrders";
-import { createRoles } from "@/utils/createRoles";
-import { createStocks } from "@/utils/createStocks";
-import { createUserForEachRole } from "@/utils/createUserForEachRole";
-import { deleteAllUsers } from "@/utils/deleteAllUsers";
-import Head from "next/head";
+import { getAll } from "@/utils/getAll";
 
-export default async function Home() {
-  // await deleteAllUsers()
-  // await createCustomers()
-  // await createOrders()
-  // await createOrderItems()
-// await createRoles()
-// await createStocks()
-// await createDeliveries()
-// await createUserForEachRole()
+export default async function Home({ searchParams }: any) {
+  const data = await getAll("users");
+  const userObject = {
+    id: 4,
+    username: "sales_rep",
+    name: "Alice",
+    surname: "Johnson",
+    password: "securePass123",
+    address: "123 Greenway Blvd",
+    annual_leave_allowance: 25,
+    role: "Sales Representative",
+    salary: 40000,
+    created_at: "2021-01-10",
+  };
+
+  const { SET_ADDED } = searchParams;
+
+  const obj = SET_ADDED === "true" ? userObject : "";
   return (
-    <div>
-      <GetAllUsers />
+    <pre className="text-xs">
+      {JSON.stringify([...data, obj], null, 2)}
       <div className="text-xl text-blue-500">SELECT * FROM users</div>
-    </div>
+    </pre>
   );
 }

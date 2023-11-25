@@ -1,18 +1,28 @@
-import { createOrders } from "@/utils/createOrders";
-import { createStocks } from "@/utils/createStocks";
 import { getAll } from "@/utils/getAll";
-import { getUsersSortedBySalary } from "@/utils/getUsersSortedBySalary";
-import { setAllOrdersToProcessing } from "@/utils/setAllOrdersStatusToProccessing";
 import { setCEOName } from "@/utils/setCEOName";
-import { setOrdersToShipped } from "@/utils/setPayedToShiped";
 
-export default async function SetSeo() {
+export default async function SetSeo({ searchParams }: any) {
   await setCEOName("Michae", "Dean");
   const data = await getAll("users");
+  const userObject = {
+    id: 4,
+    username: "sales_rep",
+    name: "Alice",
+    surname: "Johnson",
+    password: "securePass123",
+    address: "123 Greenway Blvd",
+    annual_leave_allowance: 25,
+    role: "Sales Representative",
+    salary: 40000,
+    created_at: "2021-01-10",
+  };
 
+  const { SET_ADDED } = searchParams;
+
+  const obj = SET_ADDED === "true" ? userObject : "";
   return (
     <pre className="text-xs">
-      {JSON.stringify(data, null, 2)}
+      {JSON.stringify([...data, obj], null, 2)}{" "}
       <div className="text-xl text-blue-500">
         UPDATE users
         <br />

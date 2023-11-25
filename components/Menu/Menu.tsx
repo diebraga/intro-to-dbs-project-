@@ -12,6 +12,11 @@ export default function Menu() {
     ""
   );
   const [del6months, setdel6months] = useLocalStorage<string>("del6months", "");
+  const [tablesadded, settablesadded] = useLocalStorage<string>(
+    "tablesadded",
+    ""
+  );
+
   const isRootSelected = pathname === "/" ? "underline" : "";
   const isAnualAllowanceSelected =
     pathname === "/set-anual-allowance" ? "underline" : "";
@@ -87,67 +92,67 @@ export default function Menu() {
 
         <>
           <div
-            onClick={() => router.push("/")}
+            onClick={() => router.push(`/?${tablesadded}`)}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isRootSelected}`}
           >
             SHOW ALL
           </div>
           <div
-            onClick={() => router.push("/set-anual-allowance")}
+            onClick={() => router.push(`/set-anual-allowance?${tablesadded}`)}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isAnualAllowanceSelected}`}
           >
             SET ANUAL ALLOWANCE TO 29
           </div>
           <div
-            onClick={() => router.push("/set-anual-allowance-0")}
+            onClick={() => router.push(`/set-anual-allowance-0?${tablesadded}`)}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isAnualAllowance0Selected}`}
           >
             SET ANUAL ALLOWANCE TO RANDOM
           </div>
           <div
-            onClick={() => router.push("/users-by-salary")}
+            onClick={() => router.push(`/users-by-salary?${tablesadded}`)}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${usersBySalarySelected}`}
           >
             ORDER BY HIGHEST SALARY
           </div>
           <div
-            onClick={() => router.push("/user-by-salary-low")}
+            onClick={() => router.push(`/user-by-salary-low?${tablesadded}`)}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isLowestSalarySelected}`}
           >
             ORDER BY LOWEST SALARY
           </div>
           <div
-            onClick={() => router.push("/days-off-ordered")}
+            onClick={() => router.push(`/days-off-ordered?${tablesadded}`)}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${usersByLeastDAysSelected}`}
           >
             ORDER BY LEAST DAYS OFF
           </div>
           <div
-            onClick={() => router.push("/adm-to-office-worker")}
+            onClick={() => router.push(`/adm-to-office-worker?${tablesadded}`)}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isAdmToofcSelected}`}
           >
             ADM TO OFFICE WORKER
           </div>
           <div
-            onClick={() => router.push("/office-worker-to-adm")}
+            onClick={() => router.push(`/office-worker-to-adm?${tablesadded}`)}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isOfcToAdmSelected}`}
           >
             OFFICE WORKER TO ADM
           </div>
           <div
-            onClick={() => router.push("/more-than-4")}
+            onClick={() => router.push(`/more-than-4?${tablesadded}`)}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isMoreThan4Selected}`}
           >
             MORE THAN 4 YRS WORKING
           </div>
           <div
-            onClick={() => router.push("/set-ceo")}
+            onClick={() => router.push(`/set-ceo?${tablesadded}`)}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isSetSeoSelected}`}
           >
             SET CEO MICHAEL DEAN
           </div>
           <div
-            onClick={() => router.push("/reset-ceo")}
+            onClick={() => router.push(`/reset-ceo?${tablesadded}`)}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isResetSeoSelected}`}
           >
             RESET CEO
@@ -409,13 +414,19 @@ export default function Menu() {
         <div className={`p-3 font-medium text-yellow-600 `}>ACTIONS</div>
         <>
           <div
-            onClick={() => router.push("/new-record-tables")}
+            onClick={() => {
+              settablesadded("SET_ADDED=true"),
+                router.push("/new-record-tables");
+            }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isNewRecordsSelected}`}
           >
             {"Add one new record to each table".toUpperCase()}
           </div>
           <div
-            onClick={() => router.push("/delete-record-added")}
+            onClick={() => {
+              router.push("/delete-record-added"),
+                settablesadded("SET_ADDED=false");
+            }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isDEleteRecorsSelected}`}
           >
             {"DELETE ADDED RECORS ADDED"}
