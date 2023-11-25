@@ -4,7 +4,7 @@ type Table =
   | "customers"
   | "users"
   | "orders"
-  | "stock"
+  | "product"
   | "deliveries"
   | "order_items"
   | "services"

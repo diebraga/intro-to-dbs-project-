@@ -6,14 +6,14 @@ import { createLawnmowerServices } from "@/utils/createLawnmowerServices";
 import { createOffice } from "@/utils/createOffice";
 import { createOrderItems } from "@/utils/createOrderItems";
 import { createOrders } from "@/utils/createOrders";
-import { createStocks } from "@/utils/createStocks";
+import { createProducts } from "@/utils/createStocks";
 import { createUserForEachRole } from "@/utils/createUserForEachRole";
 
 export default async function Init() {
   try {
     await createOffice();
     await createWeekDaysForFirstCompany();
-    await createStocks();
+    await createProducts();
     await createUserForEachRole();
     await createCustomers();
     await createOrders();

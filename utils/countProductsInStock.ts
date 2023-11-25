@@ -4,7 +4,7 @@ export async function countProductsInStock(): Promise<number> {
   const db = await openDb();
 
   try {
-    const result = await db.get("SELECT COUNT(*) as count FROM stock");
+    const result = await db.get("SELECT COUNT(*) as count FROM product");
     console.log(`Number of products in stock: ${result.count}`);
     return result.count;
   } catch (error) {

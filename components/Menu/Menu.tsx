@@ -38,7 +38,11 @@ export default function Menu() {
   const isOrdersSelected = pathname === "/orders" ? "underline" : "";
   const isCountStocksSelected =
     pathname === "/count-products-in-stock" ? "underline" : "";
+  const isSetOnSpecialSelected =
+    pathname === "/set-product-category" ? "underline" : "";
   const isStocksSelected = pathname === "/stocks" ? "underline" : "";
+  const isResetProductSelected =
+    pathname === "/reset-product" ? "underline" : "";
   const isLowestSalarySelected =
     pathname === "/user-by-salary-low" ? "underline" : "";
   const isCosumersSelected = pathname === "/costumers" ? "underline" : "";
@@ -210,7 +214,7 @@ export default function Menu() {
       </div>
 
       <div className="text-sm ">
-        <div className={`p-3 font-medium text-yellow-600 `}>STOCKS TABLE</div>
+        <div className={`p-3 font-medium text-yellow-600 `}>PRODUCTS TABLE</div>
         <>
           <div
             onClick={() => router.push("/stocks")}
@@ -222,7 +226,19 @@ export default function Menu() {
             onClick={() => router.push("/count-products-in-stock")}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isCountStocksSelected}`}
           >
-            COUNT STOCK
+            COUNT PRODUCTS
+          </div>
+          <div
+            onClick={() => router.push("/set-product-category")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isSetOnSpecialSelected}`}
+          >
+            SET CATEGORY ON-SPECIAL
+          </div>
+          <div
+            onClick={() => router.push("/reset-product")}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isResetProductSelected}`}
+          >
+            RESET CATEGORY
           </div>
         </>
       </div>
