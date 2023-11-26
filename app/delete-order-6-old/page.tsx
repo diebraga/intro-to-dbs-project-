@@ -1,10 +1,35 @@
 import { RenderComponent } from "@/components/RenderComponent/RenderComponent";
-import { getAll } from "@/utils/getAll";
 
 export default async function Orders({ searchParams }: any) {
   // await deleteAllUsers()
-  // await deleteOrder6monthsOld();
-  const data = await getAll("orders");
+  const { SET_ADDED, ALL_PROCESSING } = searchParams;
+  const status = ALL_PROCESSING === "true" ? "Processing" : "Shiped";
+  const data = [
+    {
+      order_id: 1,
+      customer_id: 1,
+      user_id: 1,
+      status,
+      total: 100,
+      created_at: "2023-11-26T13:33:30.221Z",
+    },
+    {
+      order_id: 2,
+      customer_id: 2,
+      user_id: 2,
+      status,
+      total: 150,
+      created_at: "2023-11-26T13:33:30.221Z",
+    },
+    {
+      order_id: 3,
+      customer_id: 3,
+      user_id: 3,
+      status: "Processing",
+      total: 200,
+      created_at: "2013-04-25T00:32:08.753Z",
+    },
+  ];
   const order = {
     order_id: 4,
     customer_id: 4,
@@ -13,8 +38,6 @@ export default async function Orders({ searchParams }: any) {
     total: 200,
     created_at: "2022-04-25T00:32:08.753Z",
   };
-
-  const { SET_ADDED } = searchParams;
 
   const obj = SET_ADDED === "true" ? order : "";
   return (

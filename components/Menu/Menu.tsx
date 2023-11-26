@@ -41,6 +41,10 @@ export default function Menu() {
     "USER_ROLE=Administrator"
   );
   const [ceo, setceo] = useLocalStorage<string>("ceo", "CEO=Diego_Braga");
+  const [allprocessing, setallprocessing] = useLocalStorage<string>(
+    "allprocessing",
+    "ALL_PROCESSING=true"
+  );
 
   const isRootSelected = pathname === "/" ? "underline" : "";
   const isAnualAllowanceSelected =
@@ -287,7 +291,9 @@ export default function Menu() {
           <div
             onClick={() =>
               router.push(
-                `/orders?${del6months}${del6months ? "&" : ""}${tablesadded}`
+                `/orders?${del6months}${del6months ? "&" : ""}${tablesadded}${
+                  tablesadded ? "&" : ""
+                }${allprocessing}`
               )
             }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isOrdersSelected}`}
@@ -295,25 +301,28 @@ export default function Menu() {
             SHOW ALL
           </div>
           <div
-            onClick={() =>
+            onClick={() => {
+              setallprocessing("ALL_PROCESSING=true");
+
               router.push(
                 `/set-orders-proccessing?${del6months}${
                   del6months ? "&" : ""
                 }${tablesadded}`
-              )
-            }
+              );
+            }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isSetProcessingSelected}`}
           >
             SET ALL PROCCESSING
           </div>
           <div
-            onClick={() =>
+            onClick={() => {
+              setallprocessing("ALL_PROCESSING=false");
               router.push(
                 `/set-payed-shiped?${del6months}${
                   del6months ? "&" : ""
                 }${tablesadded}`
-              )
-            }
+              );
+            }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isSetPayedShipedSelected}`}
           >
             SET PAYED SHIPED
@@ -322,7 +331,9 @@ export default function Menu() {
             onClick={() => {
               setdel6months("DEL_6_MONTHS=true");
               router.replace(
-                `/delete-order-6-old?DEL_6_MONTHS=true&${tablesadded}`
+                `/delete-order-6-old?DEL_6_MONTHS=true&${tablesadded}${
+                  tablesadded ? "&" : ""
+                }${allprocessing}`
               );
             }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${deleteOrderSixSelected}`}
@@ -332,7 +343,11 @@ export default function Menu() {
           <div
             onClick={() => {
               setdel6months("DEL_6_MONTHS=false");
-              router.replace(`/reset-orders?DEL_6_MONTHS=false&${tablesadded}`);
+              router.replace(
+                `/reset-orders?DEL_6_MONTHS=false&${tablesadded}${
+                  tablesadded ? "&" : ""
+                }${allprocessing}`
+              );
             }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${resetOrdersSelected}`}
           >
