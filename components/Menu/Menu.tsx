@@ -45,6 +45,10 @@ export default function Menu() {
     "allprocessing",
     "ALL_PROCESSING=true"
   );
+  const [proddroped, setproddroped] = useLocalStorage<string>(
+    "proddroped",
+    "DROP=false"
+  );
 
   const isRootSelected = pathname === "/" ? "underline" : "";
   const isAnualAllowanceSelected =
@@ -73,6 +77,10 @@ export default function Menu() {
     pathname === "/list-6-months-services" ? "underline" : "";
   const isDEleteRecorsSelected =
     pathname === "/delete-record-added" ? "underline" : "";
+  const isDropSelected = pathname === "/drop-from-orders" ? "underline" : "";
+  const isResetDropSelected =
+    pathname === "/reset-drop-orders" ? "underline" : "";
+
   const isNewRecordsSelected =
     pathname === "/new-record-tables" ? "underline" : "";
   const isOrdersSelected = pathname === "/orders" ? "underline" : "";
@@ -293,7 +301,7 @@ export default function Menu() {
               router.push(
                 `/orders?${del6months}${del6months ? "&" : ""}${tablesadded}${
                   tablesadded ? "&" : ""
-                }${allprocessing}`
+                }${allprocessing}${allprocessing ? "&" : ""}${proddroped}`
               )
             }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isOrdersSelected}`}
@@ -307,7 +315,7 @@ export default function Menu() {
               router.push(
                 `/set-orders-proccessing?${del6months}${
                   del6months ? "&" : ""
-                }${tablesadded}`
+                }${tablesadded}${tablesadded ? "&" : ""}${proddroped}`
               );
             }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isSetProcessingSelected}`}
@@ -320,7 +328,7 @@ export default function Menu() {
               router.push(
                 `/set-payed-shiped?${del6months}${
                   del6months ? "&" : ""
-                }${tablesadded}`
+                }${tablesadded}${tablesadded ? "&" : ""}${proddroped}`
               );
             }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isSetPayedShipedSelected}`}
@@ -333,7 +341,7 @@ export default function Menu() {
               router.replace(
                 `/delete-order-6-old?DEL_6_MONTHS=true&${tablesadded}${
                   tablesadded ? "&" : ""
-                }${allprocessing}`
+                }${allprocessing}${allprocessing ? "&" : ""}${proddroped}`
               );
             }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${deleteOrderSixSelected}`}
@@ -346,7 +354,7 @@ export default function Menu() {
               router.replace(
                 `/reset-orders?DEL_6_MONTHS=false&${tablesadded}${
                   tablesadded ? "&" : ""
-                }${allprocessing}`
+                }${allprocessing}${allprocessing ? "&" : ""}${proddroped}`
               );
             }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${resetOrdersSelected}`}
@@ -580,6 +588,28 @@ export default function Menu() {
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isDEleteRecorsSelected}`}
           >
             {"DELETE ADDED RECORS ADDED"}
+          </div>
+          <div
+            onClick={() => {
+              {
+                setproddroped("DROP=true");
+                router.push("/drop-from-orders");
+              }
+            }}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isDropSelected}`}
+          >
+            {"DROP ALL FROM ORDERS"}
+          </div>
+          <div
+            onClick={() => {
+              {
+                setproddroped("DROP=false");
+                router.push("/reset-drop-orders");
+              }
+            }}
+            className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isResetDropSelected}`}
+          >
+            {"RESET DROP ALL FROM ORDERS"}
           </div>
         </>
       </div>

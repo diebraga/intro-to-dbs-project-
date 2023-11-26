@@ -1,9 +1,9 @@
 import { RenderComponent } from "@/components/RenderComponent/RenderComponent";
 
 export default async function Orders({ searchParams }: any) {
-  const { SET_ADDED, ALL_PROCESSING } = searchParams;
+  const { SET_ADDED, ALL_PROCESSING, DROP } = searchParams;
   const status = ALL_PROCESSING === "true" ? "Processing" : "Shiped";
-
+  const drop = DROP === "true";
   const data = [
     {
       order_id: 1,
@@ -43,7 +43,7 @@ export default async function Orders({ searchParams }: any) {
   return (
     <pre className="text-xs">
       <RenderComponent
-        data={[...data, obj]}
+        data={!drop ? [...data, obj] : []}
         query="DEL_6_MONTHS"
         k="created_at"
         field="2013-04-25T00:32:08.753Z"
