@@ -185,7 +185,9 @@ export default function Menu() {
         <>
           <div
             onClick={() =>
-              router.push(`/orders?${del6months}${del6months ? "&" : ""}`)
+              router.push(
+                `/orders?${del6months}${del6months ? "&" : ""}${tablesadded}`
+              )
             }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isOrdersSelected}`}
           >
@@ -194,7 +196,9 @@ export default function Menu() {
           <div
             onClick={() =>
               router.push(
-                `/set-orders-proccessing?${del6months}${del6months ? "&" : ""}`
+                `/set-orders-proccessing?${del6months}${
+                  del6months ? "&" : ""
+                }${tablesadded}`
               )
             }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isSetProcessingSelected}`}
@@ -204,7 +208,9 @@ export default function Menu() {
           <div
             onClick={() =>
               router.push(
-                `/set-payed-shiped?${del6months}${del6months ? "&" : ""}`
+                `/set-payed-shiped?${del6months}${
+                  del6months ? "&" : ""
+                }${tablesadded}`
               )
             }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isSetPayedShipedSelected}`}
@@ -214,7 +220,9 @@ export default function Menu() {
           <div
             onClick={() => {
               setdel6months("DEL_6_MONTHS=true");
-              router.replace(`/delete-order-6-old?DEL_6_MONTHS=true`);
+              router.replace(
+                `/delete-order-6-old?DEL_6_MONTHS=true&${tablesadded}`
+              );
             }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${deleteOrderSixSelected}`}
           >
@@ -223,7 +231,7 @@ export default function Menu() {
           <div
             onClick={() => {
               setdel6months("DEL_6_MONTHS=false");
-              router.replace(`/reset-orders?DEL_6_MONTHS=false`);
+              router.replace(`/reset-orders?DEL_6_MONTHS=false&${tablesadded}`);
             }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${resetOrdersSelected}`}
           >
