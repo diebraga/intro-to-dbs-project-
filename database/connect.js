@@ -27,7 +27,8 @@ db.serialize(() => {
   };
 
   // Create 'product' table
-  createTable(`
+  createTable(
+    `
     CREATE TABLE IF NOT EXISTS product (
       product_id INTEGER PRIMARY KEY,
       description VARCHAR(255),
@@ -39,10 +40,13 @@ db.serialize(() => {
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       updated_at TIMESTAMP
     )
-  `, 'product');
+  `,
+    "product"
+  );
 
   // Create 'users' table
-  createTable(`
+  createTable(
+    `
     CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY,
       username TEXT,
@@ -55,10 +59,13 @@ db.serialize(() => {
       salary INTEGER,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
-  `, 'users');
+  `,
+    "users"
+  );
 
   // Create 'customers' table
-  createTable(`
+  createTable(
+    `
     CREATE TABLE IF NOT EXISTS customers (
       customer_id INTEGER PRIMARY KEY,
       name VARCHAR(100),
@@ -68,10 +75,13 @@ db.serialize(() => {
       balance DECIMAL(10, 2),
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
-  `, 'customers');
+  `,
+    "customers"
+  );
 
   // Create 'orders' table
-  createTable(`
+  createTable(
+    `
     CREATE TABLE IF NOT EXISTS orders (
       order_id INTEGER PRIMARY KEY,
       customer_id INTEGER REFERENCES customers(customer_id),
@@ -80,23 +90,29 @@ db.serialize(() => {
       total DECIMAL(10, 2),
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
-  `, 'orders');
+  `,
+    "orders"
+  );
 
   // Create 'order_items' table
-  createTable(`
-    CREATE TABLE IF NOT EXISTS order_items (
-      order_item_id INTEGER PRIMARY KEY,
-      order_id INTEGER REFERENCES orders(order_id),
-      product_id INTEGER REFERENCES product(product_id),
-      quantity INTEGER,
-      unit_price DECIMAL(10, 2),
-      line_total DECIMAL(10, 2),
-      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )
-  `, 'order_items');
+  createTable(
+    `
+  CREATE TABLE IF NOT EXISTS order_items (
+    order_item_id INTEGER PRIMARY KEY,
+    order_id INTEGER REFERENCES orders(order_id),
+    product_id INTEGER REFERENCES product(product_id), 
+    quantity INTEGER,
+    unit_price DECIMAL(10, 2),
+    line_total DECIMAL(10, 2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  )
+`,
+    "order_items"
+  );
 
   // Create 'deliveries' table
-  createTable(`
+  createTable(
+    `
     CREATE TABLE IF NOT EXISTS deliveries (
       delivery_id INTEGER PRIMARY KEY,
       order_id INTEGER REFERENCES orders(order_id),
@@ -105,10 +121,13 @@ db.serialize(() => {
       delivery_method VARCHAR,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
-  `, 'deliveries');
+  `,
+    "deliveries"
+  );
 
   // Create 'services' table
-  createTable(`
+  createTable(
+    `
     CREATE TABLE IF NOT EXISTS services (
       service_id INTEGER PRIMARY KEY,
       service_name VARCHAR(255),
@@ -118,10 +137,13 @@ db.serialize(() => {
       order_id INTEGER REFERENCES orders(order_id),
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
-  `, 'services');
+  `,
+    "services"
+  );
 
   // Create 'company_directory' table
-  createTable(`
+  createTable(
+    `
     CREATE TABLE IF NOT EXISTS company_directory (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name_company VARCHAR(255) NOT NULL,
@@ -131,10 +153,13 @@ db.serialize(() => {
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       updated_at TIMESTAMP
     )
-  `, 'company_directory');
+  `,
+    "company_directory"
+  );
 
   // Create 'days' table
-  createTable(`
+  createTable(
+    `
     CREATE TABLE IF NOT EXISTS days (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       company_id INTEGER REFERENCES company_directory(id),
@@ -144,7 +169,9 @@ db.serialize(() => {
       status VARCHAR(10),
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
-  `, 'days');
+  `,
+    "days"
+  );
 });
 
 module.exports = db;
