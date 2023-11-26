@@ -1,9 +1,33 @@
-import { getAll } from "@/utils/getAll";
-
 export default async function Customers({ searchParams }: any) {
-  // await deleteAllUsers()
-  //   await createUserForEachRole()
-  const data = await getAll("customers");
+  const data = [
+    {
+      customer_id: 1,
+      name: "John Doe",
+      address: "123 Maple Street",
+      email: "john.doe@example.com",
+      phone_number: "555-1234",
+      balance: null,
+      created_at: "2023-11-26 13:33:30",
+    },
+    {
+      customer_id: 2,
+      name: "Jane Smith",
+      address: "456 Elm Street Road",
+      email: "jane.smith@example.com",
+      phone_number: "555-5678",
+      balance: null,
+      created_at: "2023-11-26 13:33:30",
+    },
+    {
+      customer_id: 3,
+      name: "Alice Johnson",
+      address: "789 Oak Avenue Road",
+      email: "alice.johnson@example.com",
+      phone_number: "555-9012",
+      balance: null,
+      created_at: "2023-11-26 13:33:30",
+    },
+  ];
   const customer = {
     customer_id: 4,
     name: "Bob Smith",
