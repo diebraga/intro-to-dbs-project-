@@ -5,19 +5,20 @@ import { changeCategoryName } from "@/utils/setCategoryProductsOnSpecial";
 export default async function Days({ searchParams }: any) {
   await changeCategoryName("on-Special", "Lawnmowers");
   const data = await getAll("product");
+  const { SET_ADDED } = searchParams;
+
   const product = {
     product_id: 4,
     description: "Gas Lawnmower",
     price: 500,
     quantity_in_stock: 50,
     last_ordered_date: "2022-01-10",
-    category: "on-Special",
+    category: "Lawnmowers",
     manufacturer: "GasFacture",
     created_at: "2023-11-25 19:07:02",
     updated_at: null,
   };
 
-  const { SET_ADDED } = searchParams;
 
   const obj = SET_ADDED === "true" ? product : "";
   return (

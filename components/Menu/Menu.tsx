@@ -16,6 +16,7 @@ export default function Menu() {
     "tablesadded",
     ""
   );
+  const [onspecial, setonspecial] = useLocalStorage<string>("onspecial", "");
 
   const isRootSelected = pathname === "/" ? "underline" : "";
   const isAnualAllowanceSelected =
@@ -248,7 +249,7 @@ export default function Menu() {
               router.push(
                 `/stocks?${delAffFromMan}${
                   delAffFromMan ? "&" : ""
-                }${tablesadded}`
+                }${tablesadded}${tablesadded ? "&" : ""}${onspecial}`
               )
             }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isStocksSelected}`}
@@ -260,7 +261,7 @@ export default function Menu() {
               router.push(
                 `/count-products-in-stock?${delAffFromMan}${
                   delAffFromMan ? "&" : ""
-                }${tablesadded}`
+                }${tablesadded}${tablesadded ? "&" : ""}${onspecial}`
               )
             }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isCountStocksSelected}`}
@@ -268,25 +269,27 @@ export default function Menu() {
             COUNT PRODUCTS
           </div>
           <div
-            onClick={() =>
-              router.push(
-                `/set-product-category?${delAffFromMan}${
-                  delAffFromMan ? "&" : ""
-                }${tablesadded}`
-              )
-            }
+            onClick={() => {
+              setonspecial("ON_SPECIAL=true"),
+                router.push(
+                  `/set-product-category?${delAffFromMan}${
+                    delAffFromMan ? "&" : ""
+                  }${tablesadded}${tablesadded ? "&" : ""}${onspecial}`
+                );
+            }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isSetOnSpecialSelected}`}
           >
             SET CATEGORY ON-SPECIAL
           </div>
           <div
-            onClick={() =>
-              router.push(
-                `/reset-product?${delAffFromMan}${
-                  delAffFromMan ? "&" : ""
-                }${tablesadded}`
-              )
-            }
+            onClick={() => {
+              setonspecial("ON_SPECIAL=false"),
+                router.push(
+                  `/reset-product?${delAffFromMan}${
+                    delAffFromMan ? "&" : ""
+                  }${tablesadded}${tablesadded ? "&" : ""}${onspecial}`
+                );
+            }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isResetProductSelected}`}
           >
             RESET CATEGORY ON-SPECIAL
@@ -297,7 +300,7 @@ export default function Menu() {
               router.replace(
                 `/delete-all-from-manufacturer?DEL_ALL_FROM_MAN=true${
                   delAffFromMan ? "&" : ""
-                }${tablesadded}`
+                }${tablesadded}${tablesadded ? "&" : ""}${onspecial}`
               );
             }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isDelAloFromManSelected}`}
@@ -310,7 +313,7 @@ export default function Menu() {
               router.replace(
                 `/reset-from-manu?DEL_ALL_FROM_MAN=false${
                   delAffFromMan ? "&" : ""
-                }${tablesadded}`
+                }${tablesadded}${tablesadded ? "&" : ""}${onspecial}`
               );
             }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isResetFromManSelected}`}
