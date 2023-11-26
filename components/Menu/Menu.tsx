@@ -484,7 +484,7 @@ export default function Menu() {
         </div>
         <>
           <div
-            onClick={() => router.push("/order-items")}
+            onClick={() => router.push(`/order-items?${tablesadded}`)}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isOrderItemsSelected}`}
           >
             SHOW ALL
