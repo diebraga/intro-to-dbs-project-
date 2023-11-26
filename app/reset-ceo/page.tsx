@@ -1,28 +1,29 @@
-import { getAll } from "@/utils/getAll";
-import { setCEOName } from "@/utils/setCEOName";
+import { processString } from "../page";
 
 export default async function SetSeo({ searchParams }: any) {
-  await setCEOName("Diego", "Braga");
-  const data = await getAll("users");
-  const userObject = {
-    id: 4,
-    username: "sales_rep",
-    name: "Alice",
-    surname: "Johnson",
-    password: "securePass123",
-    address: "123 Greenway Blvd",
-    annual_leave_allowance: 25,
-    role: "Sales Representative",
-    salary: 40000,
-    created_at: "2021-01-10",
-  };
+  const { ALLOWANCE } = searchParams;
 
-  const { SET_ADDED } = searchParams;
-
-  const obj = SET_ADDED === "true" ? userObject : "";
   return (
     <pre className="text-xs">
-      {JSON.stringify([...data, obj], null, 2)}{" "}
+      {JSON.stringify(
+        [
+          {
+            id: 1,
+            username: "diebraga",
+            name: "Diego",
+            surname: "Braga",
+            password:
+              "$2a$10$fxXyOXqqDo5nEzSjB8e3pe3gOkNWCMuy7ZbMglB133XF27gD8aAPG",
+            address: "Road 42 High Street",
+            annual_leave_allowance: processString(ALLOWANCE)[0],
+            role: "ceo",
+            salary: 90000,
+            created_at: "2021-01-10",
+          },
+        ],
+        null,
+        2
+      )}
       <div className="text-xl text-blue-500">
         UPDATE users
         <br />
@@ -30,7 +31,7 @@ export default async function SetSeo({ searchParams }: any) {
         <br />
         {"surname = 'Braga',"}
         <br />
-        {"WHERE role_id = 'ceo'"}
+        {"WHERE role = 'ceo'"}
         <br />
       </div>
     </pre>

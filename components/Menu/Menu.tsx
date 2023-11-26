@@ -1,8 +1,19 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import useLocalStorage from "@/hooks/useLocalStorage";
+
+function generateRandomNumbers() {
+  // Create an array with four random numbers
+  const numbers = Array.from(
+    { length: 4 },
+    () => Math.floor(Math.random() * 90) + 10
+  );
+
+  // Join the numbers into a string, separated by underscores
+  return numbers.join("_");
+}
 
 export default function Menu() {
   const router = useRouter();
@@ -19,6 +30,17 @@ export default function Menu() {
   const [onspecial, setonspecial] = useLocalStorage<string>("onspecial", "");
 
   const [allcoul, setallcoul] = useLocalStorage<string>("allcoul", "");
+  const [allowance, setallowance] = useLocalStorage<string>(
+    "allowance",
+    "ALLOWANCE=29_34_56_55"
+  );
+  const randomNumbers = generateRandomNumbers();
+
+  const [userrole, setuserrole] = useLocalStorage<string>(
+    "userrole",
+    "USER_ROLE=Administrator"
+  );
+  const [ceo, setceo] = useLocalStorage<string>("ceo", "CEO=Diego_Braga");
 
   const isRootSelected = pathname === "/" ? "underline" : "";
   const isAnualAllowanceSelected =
@@ -95,67 +117,143 @@ export default function Menu() {
 
         <>
           <div
-            onClick={() => router.push(`/?${tablesadded}`)}
+            onClick={() =>
+              router.push(
+                `/?${tablesadded}${tablesadded ? "&" : ""}${allowance}${
+                  allowance ? "&" : ""
+                }${userrole}${userrole ? "&" : ""}${ceo}`
+              )
+            }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isRootSelected}`}
           >
             SHOW ALL
           </div>
           <div
-            onClick={() => router.push(`/set-anual-allowance?${tablesadded}`)}
+            onClick={() => {
+              setallowance("ALLOWANCE=29_29_29_29");
+              router.push(
+                `/set-anual-allowance?${tablesadded}${
+                  tablesadded ? "&" : ""
+                }${allowance}${allowance ? "&" : ""}${userrole}${
+                  userrole ? "&" : ""
+                }${ceo}`
+              );
+            }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isAnualAllowanceSelected}`}
           >
             SET ANUAL ALLOWANCE TO 29
           </div>
           <div
-            onClick={() => router.push(`/set-anual-allowance-0?${tablesadded}`)}
+            onClick={() => {
+              setallowance(`ALLOWANCE=${randomNumbers}`),
+                router.push(
+                  `/set-anual-allowance-0?${tablesadded}${
+                    tablesadded ? "&" : ""
+                  }ALLOWANCE=${randomNumbers}&${userrole}${
+                    userrole ? "&" : ""
+                  }${ceo}`
+                );
+            }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isAnualAllowance0Selected}`}
           >
             SET ANUAL ALLOWANCE TO RANDOM
           </div>
           <div
-            onClick={() => router.push(`/users-by-salary?${tablesadded}`)}
+            onClick={() =>
+              router.push(
+                `/users-by-salary?${tablesadded}${
+                  tablesadded ? "&" : ""
+                }${userrole}${userrole ? "&" : ""}${ceo}`
+              )
+            }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${usersBySalarySelected}`}
           >
             ORDER BY HIGHEST SALARY
           </div>
           <div
-            onClick={() => router.push(`/user-by-salary-low?${tablesadded}`)}
+            onClick={() =>
+              router.push(
+                `/user-by-salary-low?${tablesadded}${
+                  tablesadded ? "&" : ""
+                }${userrole}${userrole ? "&" : ""}${ceo}`
+              )
+            }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isLowestSalarySelected}`}
           >
             ORDER BY LOWEST SALARY
           </div>
           <div
-            onClick={() => router.push(`/days-off-ordered?${tablesadded}`)}
+            onClick={() =>
+              router.push(
+                `/days-off-ordered?${tablesadded}${
+                  tablesadded ? "&" : ""
+                }${allowance}${allowance ? "&" : ""}${ceo}`
+              )
+            }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${usersByLeastDAysSelected}`}
           >
             ORDER BY LEAST DAYS OFF
           </div>
           <div
-            onClick={() => router.push(`/adm-to-office-worker?${tablesadded}`)}
+            onClick={() => {
+              setuserrole("USER_ROLE=Office_Worker");
+              router.push(
+                `/adm-to-office-worker?${tablesadded}${tablesadded}${
+                  tablesadded ? "&" : ""
+                }${allowance}${allowance ? "&" : ""}${ceo}`
+              );
+            }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isAdmToofcSelected}`}
           >
             ADM TO OFFICE WORKER
           </div>
           <div
-            onClick={() => router.push(`/office-worker-to-adm?${tablesadded}`)}
+            onClick={() => {
+              setuserrole("USER_ROLE=Administrator");
+              router.push(
+                `/office-worker-to-adm?${tablesadded}${
+                  tablesadded ? "&" : ""
+                }${allowance}${allowance ? "&" : ""}${ceo}`
+              );
+            }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isOfcToAdmSelected}`}
           >
             OFFICE WORKER TO ADM
           </div>
           <div
-            onClick={() => router.push(`/more-than-4?${tablesadded}`)}
+            onClick={() =>
+              router.push(
+                `/more-than-4?${tablesadded}${
+                  tablesadded ? "&" : ""
+                }${allowance}${allowance ? "&" : ""}`
+              )
+            }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isMoreThan4Selected}`}
           >
             MORE THAN 4 YRS WORKING
           </div>
           <div
-            onClick={() => router.push(`/set-ceo?${tablesadded}`)}
+            onClick={() => {
+              setceo("CEO=Michael_Dean");
+              router.push(
+                `/set-ceo?${tablesadded}${tablesadded ? "&" : ""}${allowance}${
+                  allowance ? "&" : ""
+                }`
+              );
+            }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isSetSeoSelected}`}
           >
             SET CEO MICHAEL DEAN
           </div>
           <div
-            onClick={() => router.push(`/reset-ceo?${tablesadded}`)}
+            onClick={() => {
+              setceo("CEO=Diego_Braga");
+              router.push(
+                `/reset-ceo?${tablesadded}${
+                  tablesadded ? "&" : ""
+                }${allowance}${allowance ? "&" : ""}`
+              );
+            }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600  ${isResetSeoSelected}`}
           >
             RESET CEO
