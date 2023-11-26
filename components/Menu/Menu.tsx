@@ -245,7 +245,11 @@ export default function Menu() {
         <>
           <div
             onClick={() =>
-              router.push(`/stocks?${delAffFromMan}${delAffFromMan ? "&" : ""}`)
+              router.push(
+                `/stocks?${delAffFromMan}${
+                  delAffFromMan ? "&" : ""
+                }${tablesadded}`
+              )
             }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isStocksSelected}`}
           >
@@ -256,7 +260,7 @@ export default function Menu() {
               router.push(
                 `/count-products-in-stock?${delAffFromMan}${
                   delAffFromMan ? "&" : ""
-                }`
+                }${tablesadded}`
               )
             }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isCountStocksSelected}`}
@@ -268,7 +272,7 @@ export default function Menu() {
               router.push(
                 `/set-product-category?${delAffFromMan}${
                   delAffFromMan ? "&" : ""
-                }`
+                }${tablesadded}`
               )
             }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isSetOnSpecialSelected}`}
@@ -278,7 +282,9 @@ export default function Menu() {
           <div
             onClick={() =>
               router.push(
-                `/reset-product?${delAffFromMan}${delAffFromMan ? "&" : ""}`
+                `/reset-product?${delAffFromMan}${
+                  delAffFromMan ? "&" : ""
+                }${tablesadded}`
               )
             }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isResetProductSelected}`}
@@ -291,7 +297,7 @@ export default function Menu() {
               router.replace(
                 `/delete-all-from-manufacturer?DEL_ALL_FROM_MAN=true${
                   delAffFromMan ? "&" : ""
-                }`
+                }${tablesadded}`
               );
             }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isDelAloFromManSelected}`}
@@ -304,7 +310,7 @@ export default function Menu() {
               router.replace(
                 `/reset-from-manu?DEL_ALL_FROM_MAN=false${
                   delAffFromMan ? "&" : ""
-                }`
+                }${tablesadded}`
               );
             }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isResetFromManSelected}`}
