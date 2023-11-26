@@ -1,10 +1,41 @@
 import { RenderComponent } from "@/components/RenderComponent/RenderComponent";
-import { getAll } from "@/utils/getAll";
-import { changeCategoryName } from "@/utils/setCategoryProductsOnSpecial";
 
 export default async function Days({ searchParams }: any) {
-  await changeCategoryName("Lawnmowers", "on-Special");
-  const data = await getAll("product");
+  const data = [
+    {
+      product_id: 1,
+      description: "Basic Lawnmower",
+      price: 299.99,
+      quantity_in_stock: 40,
+      last_ordered_date: "2023-01-01",
+      category: "on-Special",
+      manufacturer: "GreenCuts",
+      created_at: "2023-11-26 13:33:29",
+      updated_at: null,
+    },
+    {
+      product_id: 2,
+      description: "Self-Propelled Lawnmower",
+      price: 559.5,
+      quantity_in_stock: 30,
+      last_ordered_date: "2023-01-15",
+      category: "on-Special",
+      manufacturer: "LawnMaster",
+      created_at: "2023-11-26 13:33:29",
+      updated_at: null,
+    },
+    {
+      product_id: 3,
+      description: "Electric Lawnmower",
+      price: 425,
+      quantity_in_stock: 50,
+      last_ordered_date: "2023-01-10",
+      category: "on-Special",
+      manufacturer: "EcoMow",
+      created_at: "2023-11-26 13:33:29",
+      updated_at: null,
+    },
+  ];
   const product = {
     product_id: 4,
     description: "Gas Lawnmower",
