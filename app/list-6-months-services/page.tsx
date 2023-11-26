@@ -1,23 +1,54 @@
-import HomeWrapper from "@/components/HomeWrapper/HomeWrapper";
-import { LoginForm } from "@/components/LoginForm/LoginForm";
-import Menu from "@/components/Menu/Menu";
-import { changeJobTitle } from "@/utils/changeJobTitle";
-import { createRoles } from "@/utils/createRoles";
-import { createUserForEachRole } from "@/utils/createUserForEachRole";
-import { deleteAllUsers } from "@/utils/deleteAllUsers";
-import { findLongTermExpensiveServices } from "@/utils/findLongTermExpensiveServices";
-import { getAll } from "@/utils/getAll";
-import { listUsersOlderThanFourYears } from "@/utils/listUsersOlderThanFourYears";
-import Head from "next/head";
+export default async function Home({ searchParams }: any) {
+  const { SET_ADDED } = searchParams;
+  const data = [
+    {
+      service_id: 1,
+      service_name: "Lawnmower Service Agreement",
+      duration_months: 1,
+      monthly_cost: 25,
+      customer_id: null,
+      order_id: null,
+      created_at: "2023-11-26 13:33:30",
+    },
+    {
+      service_id: 2,
+      service_name: "Mowing by Staff for Summer",
+      duration_months: 4,
+      monthly_cost: 30,
+      customer_id: null,
+      order_id: null,
+      created_at: "2023-11-26 13:33:30",
+    },
+    {
+      service_id: 3,
+      service_name: "Lawnmower Rental",
+      duration_months: 5,
+      monthly_cost: 20,
+      customer_id: null,
+      order_id: null,
+      created_at: "2023-11-26 13:33:30",
+    },
+  ];
 
-export default async function MoreThan4() {
-  // await deleteAllUsers()
+  const a = {
+    service_id: 4,
+    service_name: "Lawnmower Rental",
+    duration_months: 2,
+    monthly_cost: 20,
+    customer_id: null,
+    order_id: null,
+    created_at: "2023-11-26 13:33:30",
+  };
+  const obj = SET_ADDED === "true" ? a : "";
 
-  const data = await findLongTermExpensiveServices();
-
+  function filterServices(services: any[]): any[] {
+    return services.filter(
+      (service) => service.monthly_cost >= 20 && service.duration_months >= 3
+    );
+  }
   return (
     <pre className="text-xs">
-      {JSON.stringify(data, null, 2)}
+      {JSON.stringify(filterServices([...data, obj]), null, 2)}
       <div className="text-xl text-blue-500">
         SELECT * FROM services
         <br />

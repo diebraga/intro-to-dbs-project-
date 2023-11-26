@@ -545,13 +545,15 @@ export default function Menu() {
         <div className={`p-3 font-medium text-yellow-600 `}>SERVICES</div>
         <>
           <div
-            onClick={() => router.push("/services")}
+            onClick={() => router.push(`/services?${tablesadded}`)}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isServicesSelected}`}
           >
             SHOW ALL
           </div>
           <div
-            onClick={() => router.push("/list-6-months-services")}
+            onClick={() =>
+              router.push(`/list-6-months-services?${tablesadded}`)
+            }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${is6ServicesSelected}`}
           >
             LIST 6 MONTHS SERVICES
