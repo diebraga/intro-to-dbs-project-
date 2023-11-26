@@ -1,18 +1,30 @@
-import { getAll } from "@/utils/getAll";
-import { updateDeliveryMethod } from "@/utils/updateDeliveryMethod";
-
-const updates = [
-  { delivery_id: 1, new_method: "Courier" },
-  { delivery_id: 2, new_method: "Drone" },
-];
-
-export default async function AllDeliveryCourier({
-  searchParams,
-  params,
-}: any) {
-  await updateDeliveryMethod(updates, true);
-
-  const data = await getAll("deliveries");
+export default async function AllDeliveryCourier({ searchParams }: any) {
+  const data = [
+    {
+      delivery_id: 1,
+      order_id: 1,
+      delivery_date: "2023-02-01",
+      delivered_at: null,
+      delivery_method: "Courier",
+      created_at: "2023-11-26 13:33:30",
+    },
+    {
+      delivery_id: 2,
+      order_id: 2,
+      delivery_date: "2023-02-02",
+      delivered_at: null,
+      delivery_method: "Courier",
+      created_at: "2023-11-26 13:33:30",
+    },
+    {
+      delivery_id: 3,
+      order_id: 3,
+      delivery_date: "2023-02-03",
+      delivered_at: null,
+      delivery_method: "Courier",
+      created_at: "2023-11-26 13:33:30",
+    },
+  ];
   const { SET_ADDED } = searchParams;
   const service = {
     delivery_id: 4,
