@@ -1,9 +1,3 @@
-import { RefreshComponent } from "@/components/RefreshComponent/RefreshComponent";
-import { createItemForEachTable } from "@/utils/createItemForEachTable";
-import { createOrderItems } from "@/utils/createOrderItems";
-import { deleteAddedRecords } from "@/utils/deleteAddedRecords";
-import { getAll } from "@/utils/getAll";
-
 export default async function NewRecordsDeleted() {
   // await deleteAllUsers()
   //   await createOrderItems()
@@ -11,27 +5,35 @@ export default async function NewRecordsDeleted() {
 
   return (
     <>
-      <pre className="text-lg p-10">
-        {"Action won't work in production"}
-        {/* <RefreshComponent /> */}
-      </pre>
+      <pre className="text-lg p-10">{/* <RefreshComponent /> */}</pre>
 
       <div className="text-xl text-blue-500">
-        {"`DELETE FROM stock WHERE description = ?`, 'Royal bonds'"}
-        <br />
-        {"`DELETE FROM users WHERE username = ?`, 'user1'"}
-        <br />
-
-        {"`DELETE FROM customers WHERE email = ?`, 'email@gmail.com'"}
-        <br />
-
-        {"`DELETE FROM deliveries WHERE order_id = ?`, 4"}
-        <br />
-
-        {"`DELETE FROM orders WHERE order_id = ?`, 4"}
-        <br />
-
-        {" `DELETE FROM order_items WHERE order_item_id = ?`, 4"}
+        <div>
+          {
+            "DELETE FROM product WHERE description = 'GasLawnmower' AND manufacturer = 'GasFacture';"
+          }
+          <br />
+          {
+            "DELETE FROM users WHERE username = 'sales_rep' AND surname = 'Johnson';"
+          }
+          <br />
+          {"DELETE FROM customers WHERE email = 'bob.smith@example.com';"}
+          <br />
+          {
+            "DELETE FROM deliveries WHERE order_id = 4 AND delivery_method = 'Overnight';"
+          }
+          <br />
+          {"DELETE FROM orders WHERE order_id = 4 AND total = 200.00;"}
+          <br />
+          {
+            "DELETE FROM order_items WHERE order_id = 4 AND product_id = 1 AND quantity = 7;"
+          }
+          <br />
+          {
+            "DELETE FROM services WHERE service_name = 'Lawnmower Rental' AND duration_months = 2;"
+          }
+          <br />
+        </div>
       </div>
     </>
   );
