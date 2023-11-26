@@ -18,6 +18,8 @@ export default function Menu() {
   );
   const [onspecial, setonspecial] = useLocalStorage<string>("onspecial", "");
 
+  const [allcoul, setallcoul] = useLocalStorage<string>("allcoul", "");
+
   const isRootSelected = pathname === "/" ? "underline" : "";
   const isAnualAllowanceSelected =
     pathname === "/set-anual-allowance" ? "underline" : "";
@@ -327,19 +329,35 @@ export default function Menu() {
         <div className={`p-3 font-medium text-yellow-600 `}>DELIVERY TABLE</div>
         <>
           <div
-            onClick={() => router.push("/delivery")}
+            onClick={() => {
+              router.push(
+                `/delivery?${tablesadded}${tablesadded ? "&" : ""}${allcoul}`
+              );
+            }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isDeliverySelected}`}
           >
             SHOW ALL
           </div>
           <div
-            onClick={() => router.push("/all-del-courier")}
+            onClick={() => {
+              setallcoul("SET_ALL_COUL=true"),
+                router.push(
+                  `/all-del-courier?${tablesadded}${
+                    tablesadded ? "&" : ""
+                  }${allcoul}`
+                );
+            }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isAllDelCourierSelected}`}
           >
             SET ALL COURIER
           </div>
           <div
-            onClick={() => router.push("/reset-del")}
+            onClick={() => {
+              setallcoul("SET_ALL_COUL=false"),
+                router.push(
+                  `/reset-del?${tablesadded}${tablesadded ? "&" : ""}${allcoul}`
+                );
+            }}
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${isResetDelSelected}`}
           >
             RESET ALL

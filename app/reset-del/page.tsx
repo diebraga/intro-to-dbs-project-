@@ -16,13 +16,24 @@ const updates = [
   },
 ];
 
-export default async function AllDeliveryCourier() {
+export default async function AllDeliveryCourier({ searchParams }: any) {
   await updateDeliveryMethod(updates, false);
   const data = await getAll("deliveries");
+  const service = {
+    delivery_id: 4,
+    order_id: 4,
+    delivery_date: "2022-02-03",
+    delivered_at: null,
+    delivery_method: "Overnight",
+    created_at: "2021-11-25 23:32:16",
+  };
+  const { SET_ADDED, SET_ALL_COUL } = searchParams;
+
+  const obj = SET_ADDED === "true" ? service : "";
 
   return (
     <pre className="text-xs">
-      {JSON.stringify(data, null, 2)}
+      {JSON.stringify([...data, obj], null, 2)}
       <div className="text-xl text-blue-500">
         UPDATE deliveries
         <br />
