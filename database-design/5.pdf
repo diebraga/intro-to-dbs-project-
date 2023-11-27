@@ -1,0 +1,16 @@
+
+Product Table: Vital for managing the inventory of lawnmowers and related 
+products, tracking stock levels, and product information.
+
+Users Table: Represents the staff, essential for managing employee 
+information, roles, and access controls within the system.
+
+Customers Table: Keeps track of customer information, which is crucial 
+for sales, communication, and marketing purposes.
+
+Orders Table: Central to the business process, capturing sales transactions, 
+linking customers, staff, and products.
+
+Deliveries, Order Items, Services Tables: Support various aspects of 
+sales and service delivery, ensuring comprehensive tracking of orders, 
+deliveries, and additional services offered.
