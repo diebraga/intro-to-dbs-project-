@@ -54,25 +54,27 @@ export default async function Users({ searchParams }: any) {
     salary: 40000,
     created_at: "2021-01-10",
   };
-  const obj = SET_ADDED === "true" ? userObject : "";
+  const obj = SET_ADDED === "true" ? userObject : null;
 
   function sortByLeastAnnualLeave(users: any[]): any[] {
     return [...users].sort(
-      (a, b) => a.annual_leave_allowance - b.annual_leave_allowance
+      (a, b) => a?.annual_leave_allowance - b?.annual_leave_allowance
     );
   }
 
   function transformUsersForLeave(users: any[]): any[] {
     return users.map((user) => ({
-      name: user.name,
-      surname: user.surname,
-      annual_leave_allowance: user.annual_leave_allowance,
+      name: user?.name,
+      surname: user?.surname,
+      annual_leave_allowance: user?.annual_leave_allowance,
     }));
   }
   return (
     <pre className="text-xs">
       {JSON.stringify(
-        transformUsersForLeave(sortByLeastAnnualLeave([...arr, obj])),
+        sortByLeastAnnualLeave([...arr, obj]).filter(
+          (item) => item?.hasOwnProperty("name")
+        ),
         null,
         2
       )}

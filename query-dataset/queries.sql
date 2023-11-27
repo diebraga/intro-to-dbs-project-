@@ -49,3 +49,9 @@ DELETE FROM deliveries WHERE delivery_id = 4;
 DELETE FROM orders WHERE order_id = 4;
 DELETE FROM order_items WHERE order_item_id = 4;
 DELETE FROM services WHERE service_id = 4;
+
+-- Query users by least days off 
+SELECT name, surname, annual_leave_allowance FROM users ORDER BY annual_leave_allowance ASC
+
+-- Get count of products
+SELECT COUNT(*) as count FROM product;
