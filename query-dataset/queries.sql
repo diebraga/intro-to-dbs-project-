@@ -55,3 +55,6 @@ SELECT name, surname, annual_leave_allowance FROM users ORDER BY annual_leave_al
 
 -- Get count of products
 SELECT COUNT(*) as count FROM product;
+
+-- Adm to Office_Worker
+UPDATE users SET role = 'Administrator' WHERE role = 'Office_Worker';

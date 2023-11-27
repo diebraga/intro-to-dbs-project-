@@ -55,11 +55,15 @@ export default async function Adm({ searchParams }: any) {
     salary: 40000,
     created_at: "2021-01-10",
   };
-  const obj = SET_ADDED === "true" ? userObject : "";
+  const obj = SET_ADDED === "true" ? userObject : {};
 
   return (
     <pre className="text-xs">
-      {JSON.stringify([...arr, obj], null, 2)}
+      {JSON.stringify(
+        [...arr, obj].filter((item) => item?.hasOwnProperty("name")),
+        null,
+        2
+      )}
       <div className="text-xl text-blue-500">
         {'UPDATE users SET role = ? WHERE role = ?", [newTitle, currentTitle]'}
       </div>
