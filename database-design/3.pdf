@@ -1,0 +1,64 @@
+
+
+- Product and Order Items
+
+Relationship: One product can be part of many order items, but each order item refers to only one product.
+Cardinality: One-to-Many (1:N) from Product to Order Items.
+Constraint: Foreign Key in Order Items referencing Product ID.
+Business Rule: A single product can be ordered multiple times in different orders.
+
+
+- Users and Orders
+
+Relationship: One user (staff member) can handle multiple orders, but each order is managed by only one user.
+Cardinality: One-to-Many (1:N) from Users to Orders.
+Constraint: Foreign Key in Orders referencing User ID.
+Business Rule: Each order is associated with one staff member responsible for its processing.
+
+
+- Customers and Orders
+
+Relationship: One customer can place multiple orders, but each order is placed by only one customer.
+Cardinality: One-to-Many (1:N) from Customers to Orders.
+Constraint: Foreign Key in Orders referencing Customer ID.
+Business Rule: Customers can make multiple purchases, each recorded as a separate order.
+
+
+- Orders and Order Items
+
+Relationship: One order can contain multiple order items, but each order item is part of only one order.
+Cardinality: One-to-Many (1:N) from Orders to Order Items.
+Constraint: Foreign Key in Order Items referencing Order ID.
+Business Rule: An order can consist of various items, each item being a part of that specific order.
+
+
+- Orders and Deliveries
+
+Relationship: One order can have one delivery record, but each delivery is associated with only one order.
+Cardinality: One-to-One (1:1) from Orders to Deliveries.
+Constraint: Foreign Key in Deliveries referencing Order ID.
+Business Rule: Each order has a corresponding delivery detail, but a delivery is specific to a single order.
+
+
+- Company Directory and Days
+
+Relationship: One company location can have multiple operational days recorded, but each record pertains to one location.
+Cardinality: One-to-Many (1:N) from Company Directory to Days.
+Constraint: Foreign Key in Days referencing Company ID.
+Business Rule: Each company location can have different operational days, which are tracked separately.
+
+
+- Customers and Services
+
+Relationship: One customer can avail multiple services, but each service instance is tied to one customer.
+Cardinality: One-to-Many (1:N) from Customers to Services (assuming services are customer-specific).
+Constraint: Foreign Key in Services referencing Customer ID.
+Business Rule: Customers can opt for various services, each recorded as a separate entity.
+
+
+- Orders and Services
+
+Relationship: One order can include multiple services, but each service is linked to one order.
+Cardinality: One-to-Many (1:N) from Orders to Services (assuming services can be ordered).
+Constraint: Foreign Key in Services referencing Order ID.
+Business Rule: An order can include various services, and each service is part of that specific order.
