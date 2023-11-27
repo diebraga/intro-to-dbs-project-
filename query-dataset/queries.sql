@@ -95,3 +95,7 @@ WHERE created_at < DATE('now', '-4 years');
 -- service costs 20+ and 3+ months
 SELECT * FROM services
 WHERE duration_months > 3 AND monthly_cost >= 20
+
+-- find all customers with road in their address
+SELECT * FROM customers
+WHERE address LIKE '%road%' 
