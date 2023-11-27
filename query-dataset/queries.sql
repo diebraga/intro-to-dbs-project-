@@ -51,10 +51,27 @@ DELETE FROM order_items WHERE order_item_id = 4;
 DELETE FROM services WHERE service_id = 4;
 
 -- Query users by least days off 
-SELECT name, surname, annual_leave_allowance FROM users ORDER BY annual_leave_allowance ASC
+SELECT name, surname, annual_leave_allowance FROM users ORDER BY annual_leave_allowance ASC;
 
 -- Get count of products
 SELECT COUNT(*) as count FROM product;
 
 -- Adm to Office_Worker
 UPDATE users SET role = 'Administrator' WHERE role = 'Office_Worker';
+
+-- Set on-Special
+UPDATE product SET category = "Lawnmowers" WHERE category = "on-Special";
+
+-- Set all courier delivery_method
+UPDATE deliveries SET delivery_method = 'Courier';
+
+-- Update sunday
+UPDATE days 
+SET opening_hour = 'closed Sundays', 
+    closing_hour = 'closed Sundays' 
+WHERE day_of_week = 'Sunday';
+
+-- Drop all from ordrs
+DELETE FROM orders;
+
+
