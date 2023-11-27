@@ -50,7 +50,7 @@ export default async function Days({ searchParams }: any) {
         field="LawnMaster"
       />
       <div className="text-xl text-blue-500">
-        {`SELECT * FROM product WHERE manufacturer != 'LawnMaster';`}
+        {`DELETE FROM product WHERE manufacturer = 'LawnMaster';`}
       </div>
     </pre>
   );

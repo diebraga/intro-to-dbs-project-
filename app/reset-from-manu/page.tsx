@@ -60,7 +60,11 @@ export default async function Days({ searchParams }: any) {
         field="LawnMaster"
       />
       <div className="text-xl text-blue-500">
-        {`SELECT * FROM product WHERE manufacturer <> 'LawnMaster';`}
+        {`INSERT INTO product 
+(product_id, description, price, quantity_in_stock, last_ordered_date, category, manufacturer, created_at, updated_at) 
+VALUES 
+(2, 'Self-Propelled Lawnmower', 559.5, 30, '2023-01-15', 'on-special', 'LawnMaster', '2023-11-26 13:33:29', NULL);
+`}
       </div>
     </pre>
   );

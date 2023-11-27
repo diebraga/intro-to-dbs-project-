@@ -74,4 +74,5 @@ WHERE day_of_week = 'Sunday';
 -- Drop all from ordrs
 DELETE FROM orders;
 
-
+-- Delete with specific manufacturer
+SELECT * FROM product WHERE manufacturer != 'LawnMaster';
