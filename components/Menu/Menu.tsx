@@ -564,7 +564,7 @@ export default function Menu() {
             }
             className={`hover:text-blue-800 ml-8 cursor-pointer hover:underline text-blue-600 ${is6ServicesSelected}`}
           >
-            LIST 6 MONTHS SERVICES
+            LIST 3 MONTHS SERVICES
           </div>
         </>
       </div>

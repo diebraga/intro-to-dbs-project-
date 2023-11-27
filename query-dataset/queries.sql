@@ -76,3 +76,22 @@ DELETE FROM orders;
 
 -- Delete with specific manufacturer
 SELECT * FROM product WHERE manufacturer != 'LawnMaster';
+
+-- change company_directory phone_number
+UPDATE company_directory
+SET phone_number = '01-7654321'
+WHERE name_company = 'Introduction to dbs Company' 
+
+-- Update ceo name
+UPDATE users
+SET name = 'Michael', 
+surname = 'Dean',
+WHERE role = 'ceo'
+
+-- list more then 4 years
+SELECT * FROM users 
+WHERE created_at < DATE('now', '-4 years');
+
+-- service costs 20+ and 3+ months
+SELECT * FROM services
+WHERE duration_months > 3 AND monthly_cost >= 20
