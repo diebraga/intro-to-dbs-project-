@@ -4,76 +4,47 @@ export async function createItemForEachTable(): Promise<string> {
   const db = await openDb();
 
   try {
-    // Check and insert into 'stock'
-    const stockExists = await db.get(
-      `SELECT COUNT(*) as count FROM stock WHERE description = ?`,
-      "Royal bonds"
-    );
-    if (stockExists.count === 0) {
-      await db.run(
-        `INSERT INTO stock (description, price, quantity_in_stock, last_ordered_date, created_at) VALUES ('Royal bonds', 20.50, 100, '2023-01-01', CURRENT_TIMESTAMP)`
-      );
-    }
+    // Insert into 'product'
+    await db.run(`
+      INSERT INTO product (description, price, quantity_in_stock, last_ordered_date, category, manufacturer, created_at)
+      VALUES ('Gas Lawnmower', 500.00, 50, '2022-01-10', 'Lawnmowers', 'GasFacture', CURRENT_TIMESTAMP)
+    `);
 
-    // Check and insert into 'roles'
-    // const roleExists = await db.get(`SELECT COUNT(*) as count FROM roles WHERE role_name = ?`, 'Kitchen Porter');
-    // if (roleExists.count === 0) {
-    //   await db.run(`INSERT INTO roles (role_name, description, created_at) VALUES ('Kitchen Porter', 'Manages the kitchen', CURRENT_TIMESTAMP)`);
-    // }
+    // Insert into 'users'
+    await db.run(`
+      INSERT INTO users (username, name, surname, password, address, annual_leave_allowance, role, salary, created_at)
+      VALUES ('sales_rep', 'Alice', 'Johnson', 'securePass123', '123 Greenway Blvd', 25, 'Sales Representative', 40000, CURRENT_TIMESTAMP)
+    `);
 
-    // Check and insert into 'users'
-    const userExists = await db.get(
-      `SELECT COUNT(*) as count FROM users WHERE username = ?`,
-      "user1"
-    );
-    if (userExists.count === 0) {
-      await db.run(
-        `INSERT INTO users (username, name, surname, password, annual_leave_allowance, role, salary, created_at, address) VALUES ('user1', 'John', 'Ross', 'password123', 20, 'Sales Manager', 50000, CURRENT_TIMESTAMP, 'Chiyoda-ku, Tokyo')`
-      );
-    }
+    // Insert into 'customers'
+    await db.run(`
+      INSERT INTO customers (name, address, email, phone_number, balance, created_at)
+      VALUES ('Bob Smith', '789 Oak Lane', 'bob.smith@example.com', '555-9876', 0.00, CURRENT_TIMESTAMP)
+    `);
 
-    // Check and insert into 'customers'
-    const customerExists = await db.get(
-      `SELECT COUNT(*) as count FROM customers WHERE email = ?`,
-      "email@gmail.com"
-    );
-    if (customerExists.count === 0) {
-      await db.run(
-        `INSERT INTO customers (name, address, email, phone_number, balance, created_at) VALUES ('Fernando Alicante', '123 Main Street', 'email@gmail.com', '555-1234', 100.00, CURRENT_TIMESTAMP)`
-      );
-    }
+    // Insert into 'deliveries'
+    await db.run(`
+      INSERT INTO deliveries (order_id, delivery_date, delivered_at, delivery_method, created_at)
+      VALUES (4, '2022-02-03', NULL, 'Overnight', '2021-11-25 23:32:16')
+    `);
 
-    // Check and insert into 'deliveries'
-    const deliveryExists = await db.get(
-      `SELECT COUNT(*) as count FROM deliveries WHERE order_id = ?`,
-      4
-    );
-    if (deliveryExists.count === 0) {
-      await db.run(
-        `INSERT INTO deliveries (order_id, delivery_date, delivered_at, created_at) VALUES (4, '2023-02-04', NULL, CURRENT_TIMESTAMP)`
-      );
-    }
-    // Check and insert into 'orders'
-    const orderExists = await db.get(
-      `SELECT COUNT(*) as count FROM orders WHERE order_id = ?`,
-      4
-    );
-    if (orderExists.count === 0) {
-      await db.run(
-        `INSERT INTO orders (customer_id, user_id, status, total, created_at) VALUES (1, 1, 'Processing', 150.00, CURRENT_TIMESTAMP)`
-      );
-    }
+    // Insert into 'orders'
+    await db.run(`
+      INSERT INTO orders (order_id, customer_id, user_id, status, total, created_at)
+      VALUES (4, 4, 3, 'Processing', 200.00, CURRENT_TIMESTAMP)
+    `);
 
-    // Check and insert into 'order_items'
-    const orderItemExists = await db.get(
-      `SELECT COUNT(*) as count FROM order_items WHERE order_item_id = ?`,
-      4
-    );
-    if (orderItemExists.count === 0) {
-      await db.run(
-        `INSERT INTO order_items (order_item_id, order_id, stock_id, quantity, unit_price, line_total, created_at) VALUES (4, 1, 2, 10, 15.00, 150.00, CURRENT_TIMESTAMP)`
-      );
-    }
+    // Insert into 'order_items'
+    await db.run(`
+      INSERT INTO order_items (order_id, product_id, quantity, unit_price, line_total, created_at)
+      VALUES (4, 1, 7, 20, 140, '2023-11-26 13:33:30')
+    `);
+
+    // Insert into 'services'
+    await db.run(`
+      INSERT INTO services (service_name, duration_months, monthly_cost, customer_id, order_id, created_at)
+      VALUES ('Lawnmower Rental', 2, 20, NULL, NULL, '2023-11-26 13:33:30')
+    `);
 
     return "Records added successfully";
   } catch (error) {
