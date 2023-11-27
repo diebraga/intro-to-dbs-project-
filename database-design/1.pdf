@@ -1,0 +1,38 @@
+
+The database for a lawnmower sales office is designed to capture and manage information
+ crucial to the operation of the business. Below is an explanation of each relation and 
+ its significance:
+
+Table product: This table is essential for tracking the lawnmowers and related products 
+the office sells. It includes details like product description, pricing, stock levels, 
+and manufacturer information. This table helps in inventory management and sales analysis.
+
+Table users: It represents the staff or employees of the sales office. This includes 
+their role, salary, and contact information. It's crucial for managing employee records, 
+their roles, responsibilities, and for payroll processing.
+
+Table customers: This table keeps track of the office’s clientele. It includes customer 
+contact information and financial balances. It's key for customer relationship management, 
+marketing, and sales tracking.
+
+Table deliveries: This table records the details of products delivered to customers, 
+including the order ID, delivery dates, and methods. It's vital for managing logistics 
+and ensuring customer satisfaction through timely deliveries.
+
+Table orders: It tracks all sales transactions, including which customer bought what product 
+and the total cost. This is crucial for sales tracking, financial reporting, and inventory 
+management.
+
+Table order_items: This table details the items included in each order. It links products 
+to their respective orders and includes quantity and pricing. This is important for order 
+fulfillment and inventory control.
+
+Table services: If the office offers services like maintenance or rentals, this table tracks 
+these services, their costs, and duration. It's important for service management and billing.
+
+Table company_directory: This table contains information about the company itself, like its 
+name, contact information, and address. It's useful for internal administration and external 
+communications.
+
+Table days: This table likely tracks the operational days and hours of the company or its employees. 
+It's important for scheduling, resource planning, and informing customers about business hours.
