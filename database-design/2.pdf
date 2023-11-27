@@ -1,0 +1,45 @@
+
+
+- Product
+Represents the various products (like lawnmowers) the company sells.
+Key attributes: Product ID, Description, Price, Quantity in Stock, Last Ordered Date, Category, Manufacturer.
+
+
+- Users
+Represents staff members or employees of the company.
+Key attributes: ID, Username, Name, Surname, Password, Address, Annual Leave Allowance, Role, Salary.
+
+
+- Customers
+Represents the clients who purchase products or services from the company.
+Key attributes: Customer ID, Name, Address, Email, Phone Number, Balance.
+
+
+- Deliveries
+Manages the logistics of product deliveries to customers.
+Key attributes: Delivery ID, Order ID, Delivery Date, Delivered At, Delivery Method.
+
+
+- Orders
+Keeps track of customer orders.
+Key attributes: Order ID, Customer ID, User ID, Status, Total.
+
+
+- Order Items
+Details about the specific items within each order.
+Key attributes: Order Item ID, Order ID, Product ID, Quantity, Unit Price, Line Total.
+
+
+- Services
+Represents additional services offered, like maintenance or repair services for lawnmowers.
+Key attributes: Service ID, Service Name, Duration Months, Monthly Cost, Customer ID, Order ID.
+
+
+- Company Directory
+Manages information about the company, such as locations and contact details.
+Key attributes: ID, Name Company, Phone Number, Address, Email.
+
+
+- Days
+Manages business days and hours for the company or specific locations.
+Key attributes: ID, Company ID, Day of Week, Opening Hour, Closing Hour, Status.
