@@ -56,7 +56,6 @@ export default async function MoreThan4({ searchParams }: any) {
     created_at: "2021-01-10",
   };
 
-  const obj = SET_ADDED === "true" ? userObject : "";
   return (
     <pre className="text-xs">
       {JSON.stringify(

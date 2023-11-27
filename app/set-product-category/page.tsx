@@ -50,11 +50,11 @@ export default async function Days({ searchParams }: any) {
 
   const { SET_ADDED } = searchParams;
 
-  const obj = SET_ADDED === "true" ? product : "";
+  const obj = SET_ADDED === "true" ? product : {};
   return (
     <pre className="text-xs">
       <RenderComponent
-        data={[...data, obj]}
+        data={[...data, obj].filter((item) => item?.hasOwnProperty("price"))}
         query="DEL_ALL_FROM_MAN"
         k="manufacturer"
         field="LawnMaster"

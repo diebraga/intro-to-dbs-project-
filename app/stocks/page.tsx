@@ -51,11 +51,13 @@ export default async function Stocks({ searchParams }: any) {
     updated_at: null,
   };
 
-  const obj = SET_ADDED === "true" ? product : "";
+  const obj = SET_ADDED === "true" ? product : {};
   return (
     <pre className="text-xs">
       <RenderComponent
-        data={[...data, obj]}
+        data={[...data, obj].filter((item) =>
+          item?.hasOwnProperty("delivery_id")
+        )}
         query="DEL_ALL_FROM_MAN"
         k="manufacturer"
         field="LawnMaster"

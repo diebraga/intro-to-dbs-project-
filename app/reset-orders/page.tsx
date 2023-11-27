@@ -40,12 +40,12 @@ export default async function Orders({ searchParams }: any) {
     created_at: "2022-04-25T00:32:08.753Z",
   };
 
-  const obj = SET_ADDED === "true" ? order : "";
+  const obj = SET_ADDED === "true" ? order : {};
 
   return (
     <pre className="text-xs">
       <RenderComponent
-        data={!drop?[...data, obj]:[]}
+        data={!drop?[...data, obj].filter((item) => item?.hasOwnProperty("total")):[]}
         query="DEL_6_MONTHS"
         k="created_at"
         field="2013-04-25T00:32:08.753Z"

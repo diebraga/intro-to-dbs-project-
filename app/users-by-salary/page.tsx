@@ -48,7 +48,7 @@ export default async function UsersBySalary({ searchParams }: any) {
     salary: 40000,
     created_at: "2021-01-10",
   };
-  const obj = SET_ADDED === "true" ? userObject : "";
+  const obj = SET_ADDED === "true" ? userObject : {};
   function sortUsersByHighestSalary(users: any[]): any[] {
     return users.sort((a, b) => b.salary - a.salary);
   }
@@ -64,7 +64,9 @@ export default async function UsersBySalary({ searchParams }: any) {
   return (
     <pre className="text-xs">
       {JSON.stringify(
-        renderUsers(sortUsersByHighestSalary([...arr, obj])),
+        renderUsers(sortUsersByHighestSalary([...arr, obj])).filter((item) =>
+          item?.hasOwnProperty("name")
+        ),
         null,
         2
       )}

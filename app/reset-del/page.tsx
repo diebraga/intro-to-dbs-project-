@@ -29,11 +29,15 @@ export default async function AllDeliveryCourier({ searchParams }: any) {
   };
   const { SET_ADDED, SET_ALL_COUL } = searchParams;
 
-  const obj = SET_ADDED === "true" ? service : "";
+  const obj = SET_ADDED === "true" ? service : {};
 
   return (
     <pre className="text-xs">
-      {JSON.stringify([...data, obj], null, 2)}
+      {JSON.stringify(
+        [...data, obj].filter((item) => item?.hasOwnProperty("delivery_id")),
+        null,
+        2
+      )}
       <div className="text-xl text-blue-500">
         UPDATE deliveries
         <br />

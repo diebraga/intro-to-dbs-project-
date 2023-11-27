@@ -35,11 +35,15 @@ export default async function Delivery({ searchParams }: any) {
     delivery_method,
     created_at: "2021-11-25 23:32:16",
   };
-  const obj = SET_ADDED === "true" ? service : "";
+  const obj = SET_ADDED === "true" ? service : {};
 
   return (
     <pre className="text-xs">
-      {JSON.stringify([...data, obj], null, 2)}
+      {JSON.stringify(
+        [...data, obj].filter((item) => item?.hasOwnProperty("delivery_id")),
+        null,
+        2
+      )}
       <div className="text-xl text-blue-500">SELECT * FROM deliveries</div>
     </pre>
   );

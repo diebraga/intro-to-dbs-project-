@@ -40,11 +40,15 @@ export default async function Home({ searchParams }: any) {
     line_total: 140,
     created_at: "2023-11-26 13:33:30",
   };
-  const obj = SET_ADDED === "true" ? a : "";
+  const obj = SET_ADDED === "true" ? a : {};
 
   return (
     <pre className="text-xs">
-      {JSON.stringify([...data, obj], null, 2)}
+      {JSON.stringify(
+        [...data, obj].filter((item) => item?.hasOwnProperty("delivery_id")),
+        null,
+        2
+      )}
       <div className="text-xl text-blue-500">SELECT * FROM order_items</div>
     </pre>
   );

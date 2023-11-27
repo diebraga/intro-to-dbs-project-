@@ -53,7 +53,7 @@ export default async function UsersBySalary({ searchParams }: any) {
     created_at: "2021-01-10",
   };
 
-  const obj = SET_ADDED === "true" ? userObject : "";
+  const obj = SET_ADDED === "true" ? userObject : {};
 
   function sortUsersByLowestSalary(users: any[]): any[] {
     return users.sort((a, b) => a.salary - b.salary);

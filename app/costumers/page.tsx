@@ -40,10 +40,14 @@ export default async function Customers({ searchParams }: any) {
 
   const { SET_ADDED } = searchParams;
 
-  const obj = SET_ADDED === "true" ? customer : "";
+  const obj = SET_ADDED === "true" ? customer : {};
   return (
     <pre className="text-xs">
-      {JSON.stringify([...data, obj], null, 2)}{" "}
+      {JSON.stringify(
+        [...data, obj].filter((item) => item?.hasOwnProperty("name")),
+        null,
+        2
+      )}{" "}
       <div className="text-xl text-blue-500">SELECT * FROM customers</div>
     </pre>
   );

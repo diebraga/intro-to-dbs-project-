@@ -21,7 +21,7 @@ export default async function Days({ searchParams }: any) {
       description: "Electric Lawnmower",
       price: 425,
       quantity_in_stock: 50,
-      last_ordered_date: "2023-01-10",  
+      last_ordered_date: "2023-01-10",
       category,
       manufacturer: "EcoMow",
       created_at: "2023-11-26 13:33:29",
@@ -40,11 +40,11 @@ export default async function Days({ searchParams }: any) {
     updated_at: null,
   };
 
-  const obj = SET_ADDED === "true" ? product : "";
+  const obj = SET_ADDED === "true" ? product : {};
   return (
     <pre className="text-xs">
       <RenderComponent
-        data={[...data, obj]}
+        data={[...data, obj].filter((item) => item?.hasOwnProperty("price"))}
         query="DEL_ALL_FROM_MAN"
         k="manufacturer"
         field="LawnMaster"

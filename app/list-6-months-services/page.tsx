@@ -39,7 +39,7 @@ export default async function Home({ searchParams }: any) {
     order_id: null,
     created_at: "2023-11-26 13:33:30",
   };
-  const obj = SET_ADDED === "true" ? a : "";
+  const obj = SET_ADDED === "true" ? a : {};
 
   function filterServices(services: any[]): any[] {
     return services.filter(
@@ -48,7 +48,7 @@ export default async function Home({ searchParams }: any) {
   }
   return (
     <pre className="text-xs">
-      {JSON.stringify(filterServices([...data, obj]), null, 2)}
+      {JSON.stringify(filterServices([...data, obj]).filter((item) => item?.hasOwnProperty("services_id")), null, 2)}
       <div className="text-xl text-blue-500">
         SELECT * FROM services
         <br />
