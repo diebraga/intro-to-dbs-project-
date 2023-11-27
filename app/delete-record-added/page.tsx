@@ -9,29 +9,19 @@ export default async function NewRecordsDeleted() {
 
       <div className="text-xl text-blue-500">
         <div>
-          {
-            "DELETE FROM product WHERE description = 'GasLawnmower' AND manufacturer = 'GasFacture';"
-          }
+          {"DELETE FROM product WHERE product_id = 4;"}
           <br />
-          {
-            "DELETE FROM users WHERE username = 'sales_rep' AND surname = 'Johnson';"
-          }
+          {"DELETE FROM users WHERE id = 4;"}
           <br />
-          {"DELETE FROM customers WHERE email = 'bob.smith@example.com';"}
+          {"DELETE FROM customers WHERE customer_id = 4;"}
           <br />
-          {
-            "DELETE FROM deliveries WHERE order_id = 4 AND delivery_method = 'Overnight';"
-          }
+          {"DELETE FROM deliveries WHERE delivery_id = 4;"}
           <br />
-          {"DELETE FROM orders WHERE order_id = 4 AND total = 200.00;"}
+          {"DELETE FROM orders WHERE order_id = 4;"}
           <br />
-          {
-            "DELETE FROM order_items WHERE order_id = 4 AND product_id = 1 AND quantity = 7;"
-          }
+          {"DELETE FROM order_items WHERE order_item_id = 4;"}
           <br />
-          {
-            "DELETE FROM services WHERE service_name = 'Lawnmower Rental' AND duration_months = 2;"
-          }
+          {"DELETE FROM services WHERE service_id = 4;"}
           <br />
         </div>
       </div>

@@ -1,33 +1,31 @@
-import { openDb } from '@/database/openDb';
+import { openDb } from "@/database/openDb";
 
-export async function deleteAddedRecords(): Promise<string> {
+export async function deleteAddedRecordsById(): Promise<void> {
   const db = await openDb();
 
   try {
-    // Delete from 'stock'
-    await db.run(`DELETE FROM stock WHERE description = ?`, 'Royal bonds');
+    // Delete product with ID 4
+    await db.run(`DELETE FROM product WHERE product_id = 4`);
 
-    // Delete from 'roles'
-    // await db.run(`DELETE FROM roles WHERE role_name = ?`, 'Kitchen Porter');
+    // Delete user with ID 4
+    await db.run(`DELETE FROM users WHERE id = 4`);
 
-    // Delete from 'users'
-    await db.run(`DELETE FROM users WHERE username = ?`, 'user1');
+    // Delete customer with ID 4
+    await db.run(`DELETE FROM customers WHERE customer_id = 4`);
 
-    // Delete from 'customers'
-    await db.run(`DELETE FROM customers WHERE email = ?`, 'email@gmail.com');
+    // Delete delivery with delivery_id 4
+    await db.run(`DELETE FROM deliveries WHERE delivery_id = 4`);
 
-    // Delete from 'deliveries'
-    await db.run(`DELETE FROM deliveries WHERE order_id = ?`, 4);
+    // Delete order with order_id 4
+    await db.run(`DELETE FROM orders WHERE order_id = 4`);
 
-    // Delete from 'orders'
-    await db.run(`DELETE FROM orders WHERE order_id = ?`, 4);
+    // Delete order item with order_item_id 4
+    await db.run(`DELETE FROM order_items WHERE order_item_id = 4`);
 
-    // Delete from 'order_items'
-    await db.run(`DELETE FROM order_items WHERE order_item_id = ?`, 4);
-
-    return "Records deleted successfully";
+    // Delete service with service_id 4
+    await db.run(`DELETE FROM services WHERE service_id = 4`);
   } catch (error) {
-    console.error('Error deleting records:', error);
+    console.error("Error deleting records with ID 4:", error);
     throw error;
   } finally {
     await db.close();

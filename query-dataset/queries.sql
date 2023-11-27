@@ -40,3 +40,12 @@ VALUES ( 'Lawnmower Rental', 2, 20, NULL, NULL, '2023-11-26 13:33:30' );
 
 -- Not applicable days table completed
 -- INSERT INTO days (company_id, day_of_week, opening_hour, closing_hour, status, created_at) VALUES (1, 'Monday', '09:00', '18:00', 'Open', CURRENT_TIMESTAMP);
+
+-- Delete one record for each table
+DELETE FROM product WHERE product_id = 4;
+DELETE FROM users WHERE id = 4;
+DELETE FROM customers WHERE customer_id = 4;
+DELETE FROM deliveries WHERE delivery_id = 4;
+DELETE FROM orders WHERE order_id = 4;
+DELETE FROM order_items WHERE order_item_id = 4;
+DELETE FROM services WHERE service_id = 4;
